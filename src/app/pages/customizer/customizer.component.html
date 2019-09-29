@@ -1,3 +1,33 @@
-<p>
-  customizer works!
-</p>
+<div class="wrapper">
+  <main class="customizer">
+    <div>
+      <header>
+        <h1>{{ 'customizer-title' | translate}}</h1>
+        <p>{{ 'customizer-subtitle' | translate}}</p>
+      </header>
+      <div class="options">
+        <div class="section stacked">
+          <label>{{ 'scheme-name' | translate}}</label>
+          <input #nameInput (change)="setName(nameInput)" type=" text" />
+        </div>
+        <div class="section stacked">
+          <label>{{ 'scheme-id' | translate}}</label>
+          <input #idInput (change)="setId(idInput)" type=" text" />
+        </div>
+        <div *ngFor="let color of colors" class="section">
+          <div class="color-input" [(colorPicker)]="color.hex" [style.background]="color.hex" cpAlphaChannel="false"
+            cpOutputFormat="hex" cpDialogDisplay="popup">
+          </div>
+          <span>{{color.name | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button (click)="generateScheme()">{{ 'generate' | translate}}</button>
+    </footer>
+
+  </main>
+  <aside class="wp-admin-mock">
+    <wp-admin-mock></wp-admin-mock>
+  </aside>
+</div>

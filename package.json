@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+	"e2e": "ng e2e",
+	"extract-i18n": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json ./src/assets/i18n/el.json --format namespaced-json"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +19,14 @@
     "@angular/forms": "~8.2.8",
     "@angular/platform-browser": "~8.2.8",
     "@angular/platform-browser-dynamic": "~8.2.8",
+    "@angular/pwa": "^0.803.6",
     "@angular/router": "~8.2.8",
+    "@angular/service-worker": "~8.2.8",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
+    "highlight.js": "^9.15.10",
+    "ngx-color-picker": "^8.2.0",
     "rxjs": "~6.5.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -30,6 +37,7 @@
     "@angular/cli": "~8.3.6",
     "@angular/compiler-cli": "~8.2.8",
     "@angular/language-service": "~8.2.8",
+    "@biesbjerg/ngx-translate-extract": "^4.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

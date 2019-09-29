@@ -1,0 +1,13 @@
+{
+	"customizer-title": "Customizer",
+	"customizer-subtitle": "Choose your colors wisely!",
+	"scheme-name": "Scheme Name",
+	"scheme-id": "Scheme Id",
+	"generate": "Generate my scheme",
+	"text-color": "Text Color",
+	"base-color": "Base Color",
+	"highlight-color": "Highlight Color",
+	"notification-color": "Notification Color",
+	"body-background": "Background Color",
+	"link": "Link Color"
+}
