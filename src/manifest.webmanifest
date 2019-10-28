@@ -1,13 +1,17 @@
 {
-  "name": "wp-admin-scheme",
-  "short_name": "wp-admin-scheme",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "WP Admin Scheme Generator",
+  "description": "Generate your own admin scheme without using another plugin",
+  "short_name": "WPASG",
+  "theme_color": "#1d1d1d",
+  "background_color": "#1d1d1d",
   "display": "standalone",
+  "orientation": "landscape",
+  "categories": "wordpress, theme, generator, wp admin, scheme, developer tools",
   "scope": "/",
   "start_url": "/",
-  "icons": [
-    {
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [{
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"

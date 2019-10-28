@@ -11,7 +11,10 @@
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
-          "/*.js"
+		  "/*.js",
+		  "/assets/functions.php.text",
+		  "/assets/sass/**",
+		  "/assets/sass.worker.js"
         ]
       }
     }, {

@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside,
+main {
+  padding: 3rem;
+}
+
+main {
+	width: 320px;
+    flex-grow: 3;
+    flex-shrink: 1;
+}
+
+aside {
+	width: 450px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+code-block:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.logo{
+	width: 300px;
+	margin-bottom: 1.8em;
+}

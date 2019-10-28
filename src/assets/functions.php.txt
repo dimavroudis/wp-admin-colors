@@ -4,7 +4,7 @@ function new_admin_color_scheme() {
  
   //{{name}}
   wp_admin_css_color( '{{id}}', __( '{{name}}' ),
-    $theme_dir . '/admin-colors/{{id}}/{{id}}.min.css',
+    $theme_dir . '/{{id}}.css',
     array( '{{body-background}}', '{{base-color}}', '{{notification-color}}', '{{highlight-color}}' )
   );
 }

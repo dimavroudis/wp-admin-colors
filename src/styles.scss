@@ -1,88 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body{
+
+@import 'assets/scss/variables.scss';
+@import 'assets/scss/editor.scss';
+@import 'assets/scss/dashicons.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+
+body {
+  background: $bg;
+  color: $text;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+pre{
 	margin:0;
-	padding:0;
 }
 
-*{
-	box-sizing: border-box;
+input {
+  height: 32px;
+  padding: 0 6px;
+  background: transparent;
+  border-width: 0 0 1px 0;
+  border-style: none none solid none;
+  border-color: $text;
+  color:$text;
+  opacity:.7;
+  &:focus{
+	  outline: 0;
+	  box-shadow: 0;
+	  opacity:1
+  }
 }
 
-.hljs {
-	display: block;
-	overflow-x: auto;
-	padding: 0.5em;
-	color: #abb2bf;
-	background: #282c34;
+label, .label{
+	font-size: 0.8rem;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  label, .label {
+    width: 100%;
   }
-  
-  .hljs-comment,
-  .hljs-quote {
-	color: #5c6370;
-	font-style: italic;
+
+  label, .label {
+    margin-bottom: 6px;
   }
-  
-  .hljs-doctag,
-  .hljs-keyword,
-  .hljs-formula {
-	color: #c678dd;
+}
+
+.color-input {
+  position: relative;
+  display: block;
+  width:26px;
+  height:26px;
+  border-radius: 50%;
+  margin-right: 16px;
+  box-shadow: 2px 3px 8px -2px rgb(0, 0, 0);
+}
+
+.btn {
+  width: 100%;
+  height: 36px;
+  padding:0.8em 1.6em;
+  border: 2px solid $text;
+  background-color: transparent;
+  color: $text;
+  text-transform:uppercase;
+  font-weight:700;
+  line-height:1;
+  transition: all 200ms ease-in-out;
+ 
+
+  &:hover{
+	background-color: $text;
+	color: $bg
   }
-  
-  .hljs-section,
-  .hljs-name,
-  .hljs-selector-tag,
-  .hljs-deletion,
-  .hljs-subst {
-	color: #e06c75;
-  }
-  
-  .hljs-literal {
-	color: #56b6c2;
-  }
-  
-  .hljs-string,
-  .hljs-regexp,
-  .hljs-addition,
-  .hljs-attribute,
-  .hljs-meta-string {
-	color: #98c379;
-  }
-  
-  .hljs-built_in,
-  .hljs-class .hljs-title {
-	color: #e6c07b;
-  }
-  
-  .hljs-attr,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-selector-class,
-  .hljs-selector-attr,
-  .hljs-selector-pseudo,
-  .hljs-number {
-	color: #d19a66;
-  }
-  
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-link,
-  .hljs-meta,
-  .hljs-selector-id,
-  .hljs-title {
-	color: #61aeee;
-  }
-  
-  .hljs-emphasis {
-	font-style: italic;
-  }
-  
-  .hljs-strong {
-	font-weight: bold;
-  }
-  
-  .hljs-link {
-	text-decoration: underline;
-  }
-  
+}

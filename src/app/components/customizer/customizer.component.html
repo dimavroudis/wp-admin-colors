@@ -1,0 +1,26 @@
+<section class="customizer">
+  <div class="options">
+    <div class="section stacked">
+      <label>{{ 'scheme-name' | translate}}</label>
+      <input  [(ngModel)]="name" (change)="nameChange()" type=" text" />
+    </div>
+    <div class="section stacked">
+      <label>{{ 'scheme-id' | translate}}</label>
+      <input [(ngModel)]="id" (change)="idChange()" type=" text" />
+	</div>
+	<div class="section stacked">
+		<span class="label">{{ 'choose-base-colors' | translate}}</span>
+		<div *ngFor="let color of colors" class="section">
+			
+		<div class="color-input" [(colorPicker)]="color.hex" [style.background]="color.hex" cpAlphaChannel="false"
+			[cpOutputFormat]="'hex'" cpDialogDisplay="popup" (colorPickerChange)="colorChange()">
+		</div>
+		<span>{{color.name | translate}}</span>
+		</div>
+	</div>
+  </div>
+
+  <div>
+    <button class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
+  </div>
+</section>

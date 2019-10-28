@@ -1,9 +1,25 @@
-pre{
-
+:host{
+	display: block;
+	position: relative;
 }
 
-code{
-	max-height: 450px;
-	overflow-x:hidden;
-	overflow-y:scroll;
+code {
+  max-height: 380px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.download-link {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: white;
+  text-decoration: none;
+
+  .dashicons {
+    font-size: 26px;
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+  }
 }

@@ -1,3 +1,224 @@
-<p>
-  wp-admin-mock works!
-</p>
+<div class="container">
+  <div class="wrapper" *ngIf="colors">
+    <div id="wpadminbar" [style.background-color]="colors['base-color']" [style.color]="colors['text-color']">
+    </div>
+    <div id="wpcontent" [style.background-color]="colors['body-background']">
+      <div id="adminmenumain" [style.background-color]="colors['base-color']" [style.color]="colors['text-color']">
+        <ul class="menu-list">
+          <li class="menu-item divider">Dashboard</li>
+          <li class="menu-item">Posts</li>
+          <li class="menu-item">Pages</li>
+          <li class="menu-item">Media</li>
+          <li class="divider"><span class="menu-item">
+              <span>Comments</span><span class="badge" [style.background-color]="colors['notification-color']">2</span>
+            </span></li>
+          <li class="menu-item">Appearence</li>
+          <li class="menu-item">Plugins</li>
+          <li>
+            <span class="menu-item active" [style.background-color]="colors['highlight-color']">Users</span>
+            <ul class="menu-list submenu">
+              <li class="menu-item">All Users</li>
+              <li class="menu-item">Add new</li>
+              <li class="menu-item active">Your Profile</li>
+            </ul>
+          </li>
+          <li class="menu-item">Tools</li>
+          <li class="menu-item ">Settings</li>
+        </ul>
+      </div>
+      <div id="wpbody">
+
+        <h2>Personal Options</h2>
+
+        <table class="form-table" role="presentation">
+          <tbody>
+            <tr class="user-rich-editing-wrap">
+              <th scope="row">Visual Editor</th>
+              <td><label for="rich_editing"><input name="rich_editing" type="checkbox" id="rich_editing" value="false">
+                  Disable the visual editor when writing</label></td>
+            </tr>
+            <tr class="user-syntax-highlighting-wrap">
+              <th scope="row">Syntax Highlighting</th>
+              <td>
+                <label for="syntax_highlighting"><input name="syntax_highlighting" type="checkbox"
+                    id="syntax_highlighting" value="false"> Disable syntax highlighting when editing code</label>
+              </td>
+            </tr>
+            <tr class="user-admin-color-wrap">
+              <th scope="row">Admin Color Scheme</th>
+              <td>
+                <fieldset id="color-picker" class="scheme-list">
+                  <div class="color-option selected">
+                    <input name="admin_color" id="admin_color_fresh" type="radio" value="fresh"
+                      checked="checked">
+                    <input type="hidden" class="css_url" value="">
+                    <input type="hidden" class="icon_colors"
+                      value="{&quot;icons&quot;:{&quot;base&quot;:&quot;#a0a5aa&quot;,&quot;focus&quot;:&quot;#00a0d2&quot;,&quot;current&quot;:&quot;#fff&quot;}}">
+                    <label for="admin_color_fresh">Default</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #222">&nbsp;</td>
+                          <td style="background-color: #333">&nbsp;</td>
+                          <td style="background-color: #0073aa">&nbsp;</td>
+                          <td style="background-color: #00a0d2">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_light" type="radio" value="light">
+                    <input type="hidden" class="css_url"
+                      value="https://dimitrismavroudis.gr/test/wp-admin/css/colors/light/colors.min.css">
+                    <input type="hidden" class="icon_colors"
+                      value="{&quot;icons&quot;:{&quot;base&quot;:&quot;#999&quot;,&quot;focus&quot;:&quot;#ccc&quot;,&quot;current&quot;:&quot;#ccc&quot;}}">
+                    <label for="admin_color_light">Light</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #e5e5e5">&nbsp;</td>
+                          <td style="background-color: #999">&nbsp;</td>
+                          <td style="background-color: #d64e07">&nbsp;</td>
+                          <td style="background-color: #04a4cc">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_blue" type="radio" value="blue">
+                    <label for="admin_color_blue">Blue</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #096484">&nbsp;</td>
+                          <td style="background-color: #4796b3">&nbsp;</td>
+                          <td style="background-color: #52accc">&nbsp;</td>
+                          <td style="background-color: #74B6CE">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_coffee" type="radio" value="coffee">
+                    <label for="admin_color_coffee">Coffee</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #46403c">&nbsp;</td>
+                          <td style="background-color: #59524c">&nbsp;</td>
+                          <td style="background-color: #c7a589">&nbsp;</td>
+                          <td style="background-color: #9ea476">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_ectoplasm" type="radio" value="ectoplasm">
+                    <label for="admin_color_ectoplasm">Ectoplasm</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #413256">&nbsp;</td>
+                          <td style="background-color: #523f6d">&nbsp;</td>
+                          <td style="background-color: #a3b745">&nbsp;</td>
+                          <td style="background-color: #d46f15">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_midnight" type="radio" value="midnight">
+                    <label for="admin_color_midnight">Midnight</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #25282b">&nbsp;</td>
+                          <td style="background-color: #363b3f">&nbsp;</td>
+                          <td style="background-color: #69a8bb">&nbsp;</td>
+                          <td style="background-color: #e14d43">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_ocean" type="radio" value="ocean">
+                    <label for="admin_color_ocean">Ocean</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #627c83">&nbsp;</td>
+                          <td style="background-color: #738e96">&nbsp;</td>
+                          <td style="background-color: #9ebaa0">&nbsp;</td>
+                          <td style="background-color: #aa9d88">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_sunrise" type="radio" value="sunrise">
+                    <label for="admin_color_sunrise">Sunrise</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td style="background-color: #b43c38">&nbsp;</td>
+                          <td style="background-color: #cf4944">&nbsp;</td>
+                          <td style="background-color: #dd823b">&nbsp;</td>
+                          <td style="background-color: #ccaf0b">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+				  </div>
+				  <div class="color-option ">
+						<input name="admin_color" id="admin_color_{{id}}" type="radio" value="{{id}}" checked>
+						<label for="admin_color_{{id}}">{{name || 'New Scheme' }}</label>
+						<table class="color-palette">
+						  <tbody>
+							<tr>
+							  <td [style.background-color]="colors['base-color']">&nbsp;</td>
+							  <td [style.background-color]="colors['notification-color']">&nbsp;</td>
+							  <td [style.background-color]="colors['highlight-color']">&nbsp;</td>
+							  <td [style.background-color]="colors['link']">&nbsp;</td>
+							</tr>
+						  </tbody>
+						</table>
+					  </div>
+                </fieldset>
+              </td>
+            </tr>
+            <tr class="user-comment-shortcuts-wrap">
+              <th scope="row">Keyboard Shortcuts</th>
+              <td><label for="comment_shortcuts"><input type="checkbox" name="comment_shortcuts" id="comment_shortcuts"
+                    value="true"> Enable keyboard shortcuts for comment moderation.</label>
+            </tr>
+            <tr class="show-admin-bar user-admin-bar-front-wrap">
+              <th scope="row">Toolbar</th>
+              <td>
+                <label for="admin_bar_front">
+                  <input name="admin_bar_front" type="checkbox" id="admin_bar_front" value="1" checked="checked">
+                  Show Toolbar when viewing site</label><br>
+              </td>
+            </tr>
+
+            <tr class="user-language-wrap">
+              <th scope="row">
+                <label for="locale">Language</label>
+              </th>
+              <td>
+                <select  disabled name="locale" id="locale">
+                  <option value="site-default" data-installed="1">Site Default</option>
+                  <option value="" lang="en" data-installed="1" selected="selected">English (United States)</option>
+                  <option value="el" lang="el" data-installed="1">Ελληνικά</option>
+                </select> </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+
+        <h2>Name</h2>
+
+
+      </div>
+    </div>
+  </div>
+</div>

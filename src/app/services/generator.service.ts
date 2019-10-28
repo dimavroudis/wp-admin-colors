@@ -102,7 +102,7 @@ export class GeneratorService {
 	}
 
 	generatePHP(): Promise<string> {
-		return fetch('assets/functions.php.txt').then(y => y.text()).then(results => {
+		return fetch('assets/functions.php.txt').then(template => template.text()).then(results => {
 			return results
 				.replace(/{{name}}/g, this.name)
 				.replace(/{{id}}/g, this.id)
@@ -123,27 +123,16 @@ export class GeneratorService {
 		return variableSCSS;
 	}
 
-	makeSafeForCSS(id: string): string {
-		return id.replace(/[^a-z0-9]/g, function (s) {
-			var c = s.charCodeAt(0);
-			if (c == 32) return '-';
-			if (c >= 65 && c <= 90) return s.toLowerCase();
-			return '__' + ('000' + c.toString(16)).slice(-4);
-		});
-	}
-
 	mergeSass(): Promise<string> {
-		const scssTemplates = ['assets/_variables.scss', 'assets/_mixins.scss', 'assets/_admin.scss']
-		var promises = scssTemplates.map(url => fetch(url).then(templates => templates.text()));
-		return Promise.all(promises).then(results => {
-			return this.getVariableSCSS() + results.join('');
+		return fetch('assets/scss/wp_admin.scss').then(template => template.text()).then(results => {
+			return this.getVariableSCSS() + results;
 		})
 	}
 
 	convertSASStoCSS(sass): void {
 		Sass.compile(sass, (result) => {
 			this.css = result.text;
-			this.cssGenerated.next(true);
+			this.cssGenerated.emit(true);
 		});
 	}
 }

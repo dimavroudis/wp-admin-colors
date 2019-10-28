@@ -1,1 +1,3 @@
-<pre *ngIf="code"><code [ngClass]="type">{{code}}</code></pre>
+<pre *ngIf="code"><code [ngClass]="type" >{{code}}</code></pre>
+<a class="download-link" *ngIf="link && download" [href]="link" [download]="downloadFileName" id="downloadlink" >Download <span class="dashicons dashicons-download"></span></a>
+
