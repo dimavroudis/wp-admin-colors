@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "wpasg",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
@@ -31,7 +31,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/sass.worker.js"
+              "src/assets/generator/sass.worker.js"
             ]
           },
           "configurations": {

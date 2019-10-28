@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-@import 'assets/scss/variables.scss';
-@import 'assets/scss/editor.scss';
-@import 'assets/scss/dashicons.scss';
+@import 'scss/variables';
+@import 'scss/editor';
+@import 'scss/dashicons';
 
 html,
 body {
@@ -16,10 +16,19 @@ body {
 body {
   background: $bg;
   color: $text;
+  overflow-x: hidden;
 }
 
+
+svg{
+	fill:  $text
+}
 * {
   box-sizing: border-box;
+}
+
+img{
+	max-width: 100%;
 }
 
 pre{

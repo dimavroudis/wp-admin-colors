@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
-	selector: 'customizer',
+	selector: 'wpasg-customizer',
 	templateUrl: './customizer.component.html',
 	styleUrls: ['./customizer.component.scss']
 })
@@ -20,21 +20,21 @@ export class CustomizerComponent {
 
 	@Output() submited = new EventEmitter<boolean>();
 
-	constructor( public translate: TranslateService) { }
+	constructor(public translate: TranslateService) { }
 
-	nameChange(){
-		this.nameChanged.emit(this.name)
+	nameChange() {
+		this.nameChanged.emit(this.name);
 	}
 
-	idChange(){
-		this.idChanged.emit(this.id)
+	idChange() {
+		this.idChanged.emit(this.id);
 	}
 
-	colorChange(){
-		this.colorChanged.emit(this.colors)
+	colorChange() {
+		this.colorChanged.emit(this.colors);
 	}
 
-	submit(){
+	submit() {
 		this.submited.emit(true);
 	}
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
 @Component({
-	selector: 'wp-admin-mock',
+	selector: 'wpasg-mockup',
 	templateUrl: './wp-admin-mock.component.html',
 	styleUrls: ['./wp-admin-mock.component.scss']
 })
@@ -13,7 +13,7 @@ export class WpAdminMockComponent implements OnInit {
 	@Input()name: string;
 	@Input()id: string;
 
-	constructor() { 
+	constructor() {
 	}
 
 	ngOnInit() {

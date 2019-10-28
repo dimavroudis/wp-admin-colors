@@ -1,30 +1,49 @@
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
+  position: relative;
 }
 
-aside,
 main {
   padding: 3rem;
 }
 
-main {
-	width: 320px;
-    flex-grow: 3;
-    flex-shrink: 1;
+.mockup {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(100vw - 450px);
+  min-width: 720px;
+  max-width: 1200px;
+  transform: translate(450px, -50%)
 }
 
-aside {
-	width: 450px;
-    flex-grow: 0;
-    flex-shrink: 0;
+.customizer {
+  width: 450px;
+}
+
+.export {
+  width: 100%;
 }
 
 code-block:not(:last-child) {
   margin-bottom: 1em;
 }
 
-.logo{
-	width: 300px;
-	margin-bottom: 1.8em;
+.logo {
+  max-width: 300px;
+  margin-bottom: 1.8em;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem;
+  }
+
+  .mockup {
+    display: none;
+  }
+
+  .customizer {
+    width: 100%;
+  }
 }

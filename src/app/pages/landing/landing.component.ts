@@ -3,7 +3,6 @@ import { GeneratorService } from 'src/app/services/generator.service';
 import { Color } from 'src/app/models/colors.model';
 
 @Component({
-	selector: 'landing-page',
 	templateUrl: './landing.component.html',
 	styleUrls: ['./landing.component.scss']
 })
@@ -15,8 +14,8 @@ export class LandingPage implements OnInit {
 	colors: Array<Color>;
 	mockColors: any;
 
-	constructor(private generator: GeneratorService) { 
-		this.mockColors ={};
+	constructor(private generator: GeneratorService) {
+		this.mockColors = {};
 	}
 
 	ngOnInit() {
@@ -33,7 +32,7 @@ export class LandingPage implements OnInit {
 		this.generator.generatePHP().then((php) => {
 			this.php = php;
 		});
-		
+
 		const cssEmiter = this.generator.cssGenerated.subscribe(value => {
 			if (value) {
 				this.css = this.generator.getCSS();
@@ -44,14 +43,13 @@ export class LandingPage implements OnInit {
 
 	setColors(colors) {
 		this.colors = colors;
-		console.log(colors)
 		this.setMockColors();
 	}
 
-	setMockColors(){
-		this.colors.forEach((color) =>{
+	setMockColors() {
+		this.colors.forEach((color) => {
 			this.mockColors[color.name] = color.hex;
-		})
+		});
 	}
 
 	setName(name) {

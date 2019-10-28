@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
-	selector: 'code-block',
+	selector: 'wpasg-code-block',
 	templateUrl: './code.component.html',
 	styleUrls: ['./code.component.scss'],
 })
@@ -28,10 +28,9 @@ export class CodeComponent implements OnInit, AfterContentChecked {
 
 	ngAfterContentChecked(): void {
 		this.link = this.makeTextFile();
-		setTimeout(() => {
-			document.querySelectorAll('pre code').forEach((block) => {
-				hljs.highlightBlock(block);
-			});
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+			console.log('run')
 		});
 	}
 

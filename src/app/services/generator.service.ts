@@ -18,28 +18,28 @@ export class GeneratorService {
 	constructor() {
 		this.colors = [
 			{
-				name: "text-color",
-				hex: "#fff"
+				name: 'text-color',
+				hex: '#fff'
 			},
 			{
-				name: "base-color",
-				hex: "#23282d"
+				name: 'base-color',
+				hex: '#23282d'
 			},
 			{
-				name: "highlight-color",
-				hex: "#0073aa"
+				name: 'highlight-color',
+				hex: '#0073aa'
 			},
 			{
-				name: "notification-color",
-				hex: "#d54e21"
+				name: 'notification-color',
+				hex: '#d54e21'
 			},
 			{
-				name: "body-background",
-				hex: "#f1f1f1"
+				name: 'body-background',
+				hex: '#f1f1f1'
 			},
 			{
-				name: "link",
-				hex: "#0073aa"
+				name: 'link',
+				hex: '#0073aa'
 			}
 		];
 	}
@@ -58,7 +58,7 @@ export class GeneratorService {
 	getColor(name: string): string {
 		const index = this.colors.findIndex(color => color.name === name);
 		if (index > -1) {
-			return this.colors[index].hex
+			return this.colors[index].hex;
 		}
 		return '';
 
@@ -67,7 +67,7 @@ export class GeneratorService {
 	setAllColors(colors): Array<Color> {
 		colors.forEach(color => {
 			this.setColor(color.name, color.hex);
-		})
+		});
 		return this.colors = colors;
 	}
 
@@ -102,31 +102,31 @@ export class GeneratorService {
 	}
 
 	generatePHP(): Promise<string> {
-		return fetch('assets/functions.php.txt').then(template => template.text()).then(results => {
+		return fetch('assets/generator/functions.php.txt').then(template => template.text()).then(results => {
 			return results
 				.replace(/{{name}}/g, this.name)
 				.replace(/{{id}}/g, this.id)
 				.replace(/{{body-background}}/g, this.getColor('body-background'))
 				.replace(/{{base-color}}/g, this.getColor('base-color'))
 				.replace(/{{notification-color}}/g, this.getColor('notification-color'))
-				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'))
-		})
+				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'));
+		});
 	}
 
 	getVariableSCSS(): string {
 		let variableSCSS = '';
 		if (this.colors) {
 			this.colors.forEach(color => {
-				variableSCSS += '$' + color.name + ':' + color.hex + ';'
-			})
+				variableSCSS += '$' + color.name + ':' + color.hex + ';';
+			});
 		}
 		return variableSCSS;
 	}
 
 	mergeSass(): Promise<string> {
-		return fetch('assets/scss/wp_admin.scss').then(template => template.text()).then(results => {
+		return fetch('assets/generator/wp_admin.scss').then(template => template.text()).then(results => {
 			return this.getVariableSCSS() + results;
-		})
+		});
 	}
 
 	convertSASStoCSS(sass): void {
