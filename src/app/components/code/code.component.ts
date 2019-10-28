@@ -47,6 +47,6 @@ export class CodeComponent implements OnInit, AfterContentChecked {
 		this.textFile = window.URL.createObjectURL(data);
 
 		return this.sanitizer.bypassSecurityTrustResourceUrl(this.textFile);
-	};
+	}
 
 }
