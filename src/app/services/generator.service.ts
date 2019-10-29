@@ -40,6 +40,14 @@ export class GeneratorService {
 			{
 				name: 'link',
 				hex: '#0073aa'
+			},
+			{
+				name: 'button-color',
+				hex: '#0073aa'
+			},
+			{
+				name: 'form-checked',
+				hex: '#0073aa'
 			}
 		];
 	}

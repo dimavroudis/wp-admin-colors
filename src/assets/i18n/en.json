@@ -5,10 +5,12 @@
 	"scheme-id": "Scheme Id",
 	"choose-base-colors": "Choose your base colors",
 	"generate": "Generate my scheme",
-	"text-color": "Text Color",
-	"base-color": "Base Color",
-	"highlight-color": "Highlight Color",
-	"notification-color": "Notification Color",
-	"body-background": "Background Color",
-	"link": "Link Color"
+	"text-color": "Menu Text",
+	"base-color": "Base/Menu",
+	"highlight-color": "Highlight",
+	"notification-color": "Notification",
+	"body-background": "Background",
+	"link": "Links",
+	"button-color": "Buttons",
+	"form-checked": "Form/Inputs"
 }
