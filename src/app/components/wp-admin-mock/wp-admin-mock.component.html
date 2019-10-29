@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="wrapper" *ngIf="colors">
-    <div id="wpadminbar" [style.background-color]="colors['base-color']" [style.color]="colors['text-color']">
+<div class="container" *ngIf="colors" [attr.style]="getCssVariables()">
+  <div class="wrapper">
+    <div id="wpadminbar">
     </div>
-    <div id="wpcontent" [style.background-color]="colors['body-background']">
-      <div id="adminmenumain" [style.background-color]="colors['base-color']" [style.color]="colors['text-color']">
+    <div id="wpcontent">
+      <div id="adminmenumain">
         <ul class="menu-list">
           <li class="menu-item divider">Dashboard</li>
           <li class="menu-item">Posts</li>
           <li class="menu-item">Pages</li>
           <li class="menu-item">Media</li>
           <li class="divider"><span class="menu-item">
-              <span>Comments</span><span class="badge" [style.background-color]="colors['notification-color']">2</span>
+              <span>Comments</span><span class="badge">2</span>
             </span></li>
           <li class="menu-item">Appearence</li>
           <li class="menu-item">Plugins</li>
           <li>
-            <span class="menu-item active" [style.background-color]="colors['highlight-color']">Users</span>
+            <span class="menu-item active">Users</span>
             <ul class="menu-list submenu">
               <li class="menu-item">All Users</li>
               <li class="menu-item">Add new</li>
@@ -34,7 +34,8 @@
           <tbody>
             <tr class="user-rich-editing-wrap">
               <th scope="row">Visual Editor</th>
-              <td><label for="rich_editing"><input name="rich_editing" type="checkbox" id="rich_editing" value="false">
+              <td><label for="rich_editing"><input name="rich_editing" type="checkbox" id="rich_editing" value="false"
+                    checked>
                   Disable the visual editor when writing</label></td>
             </tr>
             <tr class="user-syntax-highlighting-wrap">
@@ -49,8 +50,7 @@
               <td>
                 <fieldset id="color-picker" class="scheme-list">
                   <div class="color-option selected">
-                    <input name="admin_color" id="admin_color_fresh" type="radio" value="fresh"
-                      checked="checked">
+                    <input name="admin_color" id="admin_color_fresh" type="radio" value="fresh" checked="checked">
                     <input type="hidden" class="css_url" value="">
                     <input type="hidden" class="icon_colors"
                       value="{&quot;icons&quot;:{&quot;base&quot;:&quot;#a0a5aa&quot;,&quot;focus&quot;:&quot;#00a0d2&quot;,&quot;current&quot;:&quot;#fff&quot;}}">
@@ -167,25 +167,25 @@
                         </tr>
                       </tbody>
                     </table>
-				  </div>
-				  <div class="color-option ">
-						<input name="admin_color" id="admin_color_{{id}}" type="radio" value="{{id}}" checked>
-						<label for="admin_color_{{id}}">{{name || 'New Scheme' }}</label>
-						<table class="color-palette">
-						  <tbody>
-							<tr>
-							  <td [style.background-color]="colors['base-color']">&nbsp;</td>
-							  <td [style.background-color]="colors['notification-color']">&nbsp;</td>
-							  <td [style.background-color]="colors['highlight-color']">&nbsp;</td>
-							  <td [style.background-color]="colors['link']">&nbsp;</td>
-							</tr>
-						  </tbody>
-						</table>
-					  </div>
+                  </div>
+                  <div class="color-option ">
+                    <input name="admin_color" id="admin_color_{{id}}" type="radio" value="{{id}}" checked>
+                    <label for="admin_color_{{id}}">{{name || 'New Scheme' }}</label>
+                    <table class="color-palette">
+                      <tbody>
+                        <tr>
+                          <td [style.background-color]="colors['base-color']">&nbsp;</td>
+                          <td [style.background-color]="colors['notification-color']">&nbsp;</td>
+                          <td [style.background-color]="colors['highlight-color']">&nbsp;</td>
+                          <td [style.background-color]="colors['link']">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </fieldset>
               </td>
             </tr>
-            <tr class="user-comment-shortcuts-wrap">
+            <!-- <tr class="user-comment-shortcuts-wrap">
               <th scope="row">Keyboard Shortcuts</th>
               <td><label for="comment_shortcuts"><input type="checkbox" name="comment_shortcuts" id="comment_shortcuts"
                     value="true"> Enable keyboard shortcuts for comment moderation.</label>
@@ -209,13 +209,14 @@
                   <option value="" lang="en" data-installed="1" selected="selected">English (United States)</option>
                   <option value="el" lang="el" data-installed="1">Ελληνικά</option>
                 </select> </td>
-            </tr>
+            </tr> -->
 
 
           </tbody>
         </table>
 
-        <h2>Name</h2>
+        <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary"
+            value="Update Profile"></p>
 
 
       </div>

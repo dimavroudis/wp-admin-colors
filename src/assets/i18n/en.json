@@ -1,9 +1,7 @@
 {
-	"customizer-title": "Customizer",
-	"customizer-subtitle": "Choose your colors wisely!",
 	"scheme-name": "Scheme Name",
 	"scheme-id": "Scheme Id",
-	"choose-base-colors": "Choose your base colors",
+	"choose-base-colors": "Choose your colors",
 	"generate": "Generate my scheme",
 	"text-color": "Menu Text",
 	"base-color": "Base/Menu",
