@@ -1,3 +1,5 @@
 <pre *ngIf="code"><code [ngClass]="type" >{{code}}</code></pre>
 <a class="download-link" *ngIf="link && download" [href]="link" [download]="downloadFileName" id="downloadlink" >Download <span class="dashicons dashicons-download"></span></a>
+<button class="download-link" *ngIf="copy" href=""  (click)="copyToClipborad(code)">Copy <span class="dashicons dashicons-paperclip"></span></button>
+
 
