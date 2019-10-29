@@ -2,6 +2,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 
 import { Color } from 'src/app/models/colors.model';
 import { TranslateService } from '@ngx-translate/core';
+import { ValidationService } from 'src/app/services/validation.service';
 
 
 @Component({
@@ -20,13 +21,19 @@ export class CustomizerComponent {
 
 	@Output() submited = new EventEmitter<boolean>();
 
-	constructor(public translate: TranslateService) { }
+	constructor(public translate: TranslateService, private validator: ValidationService) { }
 
-	nameChange() {
-		this.nameChanged.emit(this.name);
+	nameChange(value) {
+		this.name = value;
+		if (!this.id) {
+			this.idChange(value);
+		}
+		this.nameChanged.emit(value);
 	}
 
-	idChange() {
+
+	idChange(value) {
+		this.id = this.validator.makeSafeId(value);
 		this.idChanged.emit(this.id);
 	}
 

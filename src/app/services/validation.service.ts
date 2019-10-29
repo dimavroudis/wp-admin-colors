@@ -8,7 +8,7 @@ export class ValidationService {
 	constructor() { }
 
 	makeSafeId(id: string): string {
-		return id.replace(/[^a-z0-9]/g, function (s) {
+		return id.replace(/[^a-z0-9]/g, (s) => {
 			const c = s.charCodeAt(0);
 			if (c === 32) {
 				return '-';
@@ -16,7 +16,10 @@ export class ValidationService {
 			if (c >= 65 && c <= 90) {
 				return s.toLowerCase();
 			}
-			return '__' + ('000' + c.toString(16)).slice(-4);
+			if (c === 45) {
+				return s;
+			}
+			return '';
 		});
 	}
 

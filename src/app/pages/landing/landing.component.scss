@@ -1,24 +1,25 @@
+@import '../../../scss/variables.scss';
+
 .wrapper {
   display: block;
   position: relative;
-}
-
-main {
-  padding: 3rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0;
 }
 
 .mockup {
   position: absolute;
   top: 50%;
   left: 0;
-  width: calc(100vw - 450px);
+  width: calc(100vw - 360px + 6rem);
   min-width: 720px;
-  max-width: 1200px;
-  transform: translate(450px, -50%)
+  max-width: 1000px;
+  transform: translate(calc(360px + 6rem), -50%)
 }
 
 .customizer {
-  width: 450px;
+  width: 360px;
 }
 
 .export {
@@ -34,9 +35,19 @@ code-block:not(:last-child) {
   margin-bottom: 1.8em;
 }
 
+.footer{
+	color: $light-text;
+	text-align: right;
+	margin: 1em 0;
+	font-size: 14px;
+	a{
+		color: $light-text;
+	}
+}
+
 @media (max-width: 768px) {
-  section {
-    padding: 2rem;
+  .wrapper {
+    padding: 1rem 1rem 0;
   }
 
   .mockup {

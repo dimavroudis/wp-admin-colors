@@ -13,9 +13,11 @@ export class LandingPage implements OnInit {
 	php: string;
 	colors: Array<Color>;
 	mockColors: any;
+	isGenerated: boolean;
 
 	constructor(private generator: GeneratorService) {
 		this.mockColors = {};
+		this.isGenerated = false;
 	}
 
 	ngOnInit() {
@@ -31,14 +33,17 @@ export class LandingPage implements OnInit {
 		this.generator.generateCSS();
 		this.generator.generatePHP().then((php) => {
 			this.php = php;
+			this.isGenerated = typeof this.php  !== 'undefined' && typeof this.css  !== 'undefined';
 		});
 
 		const cssEmiter = this.generator.cssGenerated.subscribe(value => {
 			if (value) {
 				this.css = this.generator.getCSS();
+				this.isGenerated = typeof this.php  !== 'undefined' && typeof this.css  !== 'undefined';
 				cssEmiter.unsubscribe();
 			}
 		});
+		window.scrollTo(0, 0);
 	}
 
 	setColors(colors) {

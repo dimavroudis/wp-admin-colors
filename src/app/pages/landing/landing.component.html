@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <ng-template [ngIf]="!(css && php)">
+  <ng-template [ngIf]="!isGenerated">
     <main class="customizer">
       <header>
         <a href="/" title="home">
@@ -10,7 +10,7 @@
         </a>
       </header>
       <div>
-        <wpasg-customizer [colors]="colors" [name]="" [id]="" (colorChanged)="setColors($event)"
+        <wpasg-customizer [colors]="colors" [name]="name" [id]="id" (colorChanged)="setColors($event)"
           (nameChanged)="setName($event)" (idChanged)="setId($event)" (submited)="generateScheme()"></wpasg-customizer>
       </div>
     </main>
@@ -18,7 +18,7 @@
       <wpasg-mockup [id]="id" [name]="name" [colors]="mockColors"></wpasg-mockup>
     </aside>
   </ng-template>
-  <ng-template [ngIf]="css && php">
+  <ng-template [ngIf]="isGenerated">
     <main class="export">
       <header>
         <a href="/" title="home">
@@ -29,12 +29,16 @@
         </a>
       </header>
       <h1>Your scheme is ready.</h1>
-      <p class="lead">Follow the next steps to apply your theme.</p>
+      <p class="lead">Follow the next steps to apply your theme or <a href="" (click)="isGenerated = false">go back</a> and create another.</p>
       <p>Add this stylesheet to you theme:</p>
       <wpasg-code-block [code]="css" type="css" [download]="true" [downloadFileName]="id + '.css'"
         downloadFileType="text/css"></wpasg-code-block>
       <p>Copy this code your functions.php file:</p>
-      <wpasg-code-block [code]="php" type="php"></wpasg-code-block>
+      <wpasg-code-block [code]="php" [copy]="true" type="php"></wpasg-code-block>
     </main>
   </ng-template>
+  <footer class="footer">
+    Made by <a href="https://mavrou.gr">Dimitris Mavroudis</a>
+  </footer>
+
 </div>
