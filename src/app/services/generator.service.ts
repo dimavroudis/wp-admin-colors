@@ -12,8 +12,11 @@ export class GeneratorService {
 	private name: string;
 	private colors: Array<Color>;
 	private css: string;
+	private php: string;
+	private isComplete: boolean;
 
-	cssGenerated: EventEmitter<boolean> = new EventEmitter();
+	statusChaged: EventEmitter<any> = new EventEmitter();
+
 
 	constructor() {
 		this.colors = [
@@ -103,6 +106,10 @@ export class GeneratorService {
 		return this.css;
 	}
 
+	getPHP(): string {
+		return this.php;
+	}
+
 	generateCSS(): Promise<void> {
 		return this.mergeSass().then(sass => {
 			this.convertSASStoCSS(sass);
@@ -118,6 +125,11 @@ export class GeneratorService {
 				.replace(/{{base-color}}/g, this.getColor('base-color'))
 				.replace(/{{notification-color}}/g, this.getColor('notification-color'))
 				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'));
+		}).then(php => {
+			this.php = php;
+			this.isComplete = !!this.php && !!this.css;
+			this.statusChaged.emit({'status': 'generated:php', 'done': this.isComplete});
+			return this.php;
 		});
 	}
 
@@ -140,7 +152,8 @@ export class GeneratorService {
 	convertSASStoCSS(sass): void {
 		Sass.compile(sass, (result) => {
 			this.css = result.text;
-			this.cssGenerated.emit(true);
+			this.isComplete = !!this.php && !!this.css;
+			this.statusChaged.emit({'status': 'generated:css', 'done': this.isComplete});
 		});
 	}
 }

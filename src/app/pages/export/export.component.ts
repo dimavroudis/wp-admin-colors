@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
 import { Color } from 'src/app/models/colors.model';
 
@@ -7,10 +7,8 @@ import { Color } from 'src/app/models/colors.model';
 	templateUrl: './export.component.html',
 	styleUrls: ['./export.component.scss']
 })
-export class ExportPage implements OnInit, OnDestroy {
-	id: string;
-	name: string;
-	colors: Color[];
+export class ExportPage implements OnInit {
+
 	isGenerated: boolean;
 	php: string;
 	css: string;
@@ -19,29 +17,20 @@ export class ExportPage implements OnInit, OnDestroy {
 	constructor(private generator: GeneratorService) {}
 
 	ngOnInit() {
-		this.cssEmiter = this.generator.cssGenerated.subscribe(value => {
-			if (value) {
+		this.isGenerated = false;
+		this.cssEmiter = this.generator.statusChaged.subscribe(value => {
+			// console.log(value);
+			if (value.done) {
 				this.css = this.generator.getCSS();
-				this.isGenerated = typeof this.php !== 'undefined' && typeof this.css !== 'undefined';
+				this.php = this.generator.getPHP();
+				this.isGenerated = value.done;
+				this.cssEmiter.unsubscribe();
 			}
 		});
-		this.isGenerated = false;
-		this.id = this.generator.getId();
-		this.name = this.generator.getName();
-		this.colors = this.generator.getAllColors();
 		this.generator.generateCSS();
-		this.generator.generatePHP().then((php) => {
-			this.php = php;
-			this.isGenerated = typeof this.php !== 'undefined' && typeof this.css !== 'undefined';
-		});
-
-		
+		this.generator.generatePHP();
 	}
 
 
-	ngOnDestroy(): void {
-
-		this.cssEmiter.unsubscribe();
-	}
 
 }
