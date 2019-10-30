@@ -1,0 +1,37 @@
+@import '../scss/variables.scss';
+
+.wrapper {
+  display: block;
+  position: relative;
+  max-width: 1500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  color: $light-text;
+  text-align: right;
+  margin: 1em 0;
+  padding: 0 2rem;
+  font-size: 0.8rem;
+
+  a {
+    color: $light-text;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1rem 1rem 2.5rem;
+  }
+  .footer {
+    padding: 0 1rem;
+  }
+}

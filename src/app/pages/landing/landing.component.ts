@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
 import { Color } from 'src/app/models/colors.model';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './landing.component.html',
@@ -13,14 +14,14 @@ export class LandingPage implements OnInit {
 	php: string;
 	colors: Array<Color>;
 	mockColors: any;
-	isGenerated: boolean;
 
-	constructor(private generator: GeneratorService) {
+	constructor(private generator: GeneratorService, private router: Router ) {
 		this.mockColors = {};
-		this.isGenerated = false;
 	}
 
 	ngOnInit() {
+		this.id = this.generator.getId();
+		this.name = this.generator.getName();
 		this.colors = this.generator.getAllColors();
 		this.setMockColors();
 	}
@@ -29,21 +30,7 @@ export class LandingPage implements OnInit {
 		this.generator.setAllColors(this.colors);
 		this.generator.setName(this.name);
 		this.generator.setId(this.id);
-
-		this.generator.generateCSS();
-		this.generator.generatePHP().then((php) => {
-			this.php = php;
-			this.isGenerated = typeof this.php  !== 'undefined' && typeof this.css  !== 'undefined';
-		});
-
-		const cssEmiter = this.generator.cssGenerated.subscribe(value => {
-			if (value) {
-				this.css = this.generator.getCSS();
-				this.isGenerated = typeof this.php  !== 'undefined' && typeof this.css  !== 'undefined';
-				cssEmiter.unsubscribe();
-			}
-		});
-		window.scrollTo(0, 0);
+		this.router.navigate(['/export']);
 	}
 
 	setColors(colors) {

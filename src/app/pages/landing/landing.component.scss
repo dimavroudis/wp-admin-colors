@@ -1,12 +1,3 @@
-@import '../../../scss/variables.scss';
-
-.wrapper {
-  display: block;
-  position: relative;
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 2rem 2rem 0;
-}
 
 .mockup {
   position: absolute;
@@ -22,34 +13,12 @@
   width: 360px;
 }
 
-.export {
-  width: 100%;
-}
-
-code-block:not(:last-child) {
-  margin-bottom: 1em;
-}
-
 .logo {
   max-width: 300px;
   margin-bottom: 1.8em;
 }
 
-.footer{
-	color: $light-text;
-	text-align: right;
-	margin: 1em 0;
-	font-size: 14px;
-	a{
-		color: $light-text;
-	}
-}
-
 @media (max-width: 768px) {
-  .wrapper {
-    padding: 1rem 1rem 0;
-  }
-
   .mockup {
     display: none;
   }

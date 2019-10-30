@@ -1,4 +1,4 @@
-<main class="customizer">
+<main class="export">
   <header>
     <a href="/" title="home">
       <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205.2 40.6">
@@ -7,11 +7,17 @@
       </svg>
     </a>
   </header>
-  <div>
-    <wpasg-customizer [colors]="colors" [name]="name" [id]="id" (colorChanged)="setColors($event)"
-      (nameChanged)="setName($event)" (idChanged)="setId($event)" (submited)="generateScheme()"></wpasg-customizer>
-  </div>
+  <ng-template [ngIf]="!isGenerated">
+		<h1>Your scheme is getting ready...</h1>
+  </ng-template>
+  <ng-template [ngIf]="isGenerated">
+    <h1>Your scheme is ready.</h1>
+    <p class="lead">Follow the next steps to apply your theme or <a [routerLink]="'/'">go back</a> and create another.
+    </p>
+    <p>Add this stylesheet to you theme:</p>
+    <wpasg-code-block [code]="css" type="css" [download]="true" [downloadFileName]="id + '.css'"
+      downloadFileType="text/css"></wpasg-code-block>
+    <p>Copy this code your functions.php file:</p>
+    <wpasg-code-block [code]="php" [copy]="true" type="php"></wpasg-code-block>
+  </ng-template>
 </main>
-<aside class="mockup">
-  <wpasg-mockup [id]="id" [name]="name" [colors]="mockColors"></wpasg-mockup>
-</aside>
