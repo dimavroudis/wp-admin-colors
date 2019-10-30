@@ -1,29 +1,51 @@
 <div class="container" *ngIf="colors" [attr.style]="getCssVariables()">
   <div class="wrapper">
     <div id="wpadminbar">
+      <div class="start">
+        <div class="item">
+          <span class="dashicons dashicons-wordpress"></span>
+        </div>
+        <div class="item">
+          <span class="dashicons dashicons-admin-site"></span> My Site
+        </div>
+        <div class="item">
+          <span class="dashicons dashicons-update"></span> 2
+        </div>
+        <div class="item">
+          <span class="dashicons dashicons-admin-comments"></span> 3
+        </div>
+        <div class="item">
+          <span class="dashicons dashicons-plus"></span> New
+		</div>
+      </div>
+      <div class="end">
+        <div class="item">
+          Howdy, stranger
+        </div>
+      </div>
     </div>
     <div id="wpcontent">
       <div id="adminmenumain">
         <ul class="menu-list">
-          <li class="menu-item divider">Dashboard</li>
-          <li class="menu-item">Posts</li>
-          <li class="menu-item">Pages</li>
-          <li class="menu-item">Media</li>
+          <li class="menu-item divider"><span class="dashicons dashicons-dashboard"></span>Dashboard</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-post"></span>Posts</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-page"></span>Pages</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-media"></span>Media</li>
           <li class="divider"><span class="menu-item">
-              <span>Comments</span><span class="badge">2</span>
+              <span class="dashicons dashicons-admin-comments"></span><span>Comments</span><span class="badge">2</span>
             </span></li>
-          <li class="menu-item">Appearence</li>
-          <li class="menu-item">Plugins</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-appearance"></span>Appearence</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-plugins"></span>Plugins</li>
           <li>
-            <span class="menu-item active">Users</span>
+            <span class="menu-item active"><span class="dashicons dashicons-admin-users"></span>Users</span>
             <ul class="menu-list submenu">
               <li class="menu-item">All Users</li>
               <li class="menu-item">Add new</li>
               <li class="menu-item active">Your Profile</li>
             </ul>
           </li>
-          <li class="menu-item">Tools</li>
-          <li class="menu-item ">Settings</li>
+          <li class="menu-item"><span class="dashicons dashicons-admin-tools"></span>Tools</li>
+          <li class="menu-item "><span class="dashicons dashicons-admin-settings"></span>Settings</li>
         </ul>
       </div>
       <div id="wpbody">
