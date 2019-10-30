@@ -1,4 +1,8 @@
 
+:host{
+	display: block;
+    position: relative;
+}
 .mockup {
   position: absolute;
   top: 50%;
@@ -13,10 +17,6 @@
   width: 360px;
 }
 
-.logo {
-  max-width: 300px;
-  margin-bottom: 1.8em;
-}
 
 @media (max-width: 768px) {
   .mockup {

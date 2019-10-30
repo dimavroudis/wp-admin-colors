@@ -9,6 +9,16 @@
   padding: 2rem 2rem 3rem;
 }
 
+.header {
+  .logo {
+	display: inline-block;
+    max-width: 300px;
+	margin-bottom: 1.8em;
+	svg{
+		width: 100%;
+	}
+  }
+}
 
 .footer {
   position: absolute;
@@ -31,6 +41,7 @@
   .wrapper {
     padding: 1rem 1rem 2.5rem;
   }
+
   .footer {
     padding: 0 1rem;
   }
