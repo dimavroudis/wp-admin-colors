@@ -31,7 +31,6 @@ export class CustomizerComponent {
 		this.nameChanged.emit(value);
 	}
 
-
 	idChange(value) {
 		this.id = this.validator.makeSafeId(value);
 		this.idChanged.emit(this.id);

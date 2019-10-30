@@ -1,15 +1,21 @@
 <main class="export">
   <ng-template [ngIf]="!isGenerated">
-		<h1>Your scheme is getting ready...</h1>
+    <h1>Your scheme is getting ready...</h1>
   </ng-template>
   <ng-template [ngIf]="isGenerated">
     <h1>Your scheme is ready.</h1>
     <p class="lead">Follow the next steps to apply your theme or <a [routerLink]="'/'">go back</a> and create another.
     </p>
-    <p>Add this stylesheet to you theme:</p>
-    <wpasg-code-block [code]="css" type="css" [download]="true" [downloadFileName]="id + '.css'"
-      downloadFileType="text/css"></wpasg-code-block>
-    <p>Copy this code your functions.php file:</p>
-    <wpasg-code-block [code]="php" [copy]="true" type="php"></wpasg-code-block>
+    <ol>
+      <li *ngIf="css">
+        <p>Add this stylesheet to you theme:</p>
+        <wpasg-code-block [code]="css" type="css" [download]="true" [downloadFileName]="id + '.css'"
+          downloadFileType="text/css"></wpasg-code-block>
+      </li>
+      <li *ngIf="php">
+        <p>Copy this code your functions.php file:</p>
+        <wpasg-code-block [code]="php" [copy]="true" type="php"></wpasg-code-block>
+      </li>
+    </ol>
   </ng-template>
 </main>

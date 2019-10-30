@@ -156,4 +156,16 @@ export class GeneratorService {
 			this.statusChaged.emit({'status': 'generated:css', 'done': this.isComplete});
 		});
 	}
+
+	reset(){
+		this.css = '';
+		this.php = '';
+		this.isComplete = false;
+	}
+
+	clean(){
+		this.id = '';
+		this.name = '';
+		this.colors = [];
+	}
 }

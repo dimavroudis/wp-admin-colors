@@ -21,6 +21,6 @@
   </div>
 
   <div>
-    <button class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
+    <button [disabled]="!name || !id" class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
   </div>
 </section>

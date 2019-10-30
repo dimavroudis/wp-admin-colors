@@ -9,22 +9,23 @@ import { Color } from 'src/app/models/colors.model';
 })
 export class ExportPage implements OnInit {
 
-	isGenerated: boolean;
+	isGenerated: boolean  = false;
 	php: string;
 	css: string;
-	cssEmiter: any;
+	generatorProgress: any;
+	id: string;
 
 	constructor(private generator: GeneratorService) {}
 
 	ngOnInit() {
-		this.isGenerated = false;
-		this.cssEmiter = this.generator.statusChaged.subscribe(value => {
-			// console.log(value);
-			if (value.done) {
+		this.id = this.generator.getId();
+		this.generatorProgress = this.generator.statusChaged.subscribe(value => {
+			this.isGenerated = value.done;
+			if (this.isGenerated) {
 				this.css = this.generator.getCSS();
 				this.php = this.generator.getPHP();
-				this.isGenerated = value.done;
-				this.cssEmiter.unsubscribe();
+				this.generatorProgress.unsubscribe();
+				this.generator.reset();
 			}
 		});
 		this.generator.generateCSS();

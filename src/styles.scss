@@ -35,6 +35,14 @@ pre{
 	margin:0;
 }
 
+a{
+	color: darken($text, 20%);
+
+	&:visited{
+		color: darken($text, 40%);
+	}
+}
+
 input {
   height: 32px;
   padding: 0 6px;
@@ -92,8 +100,13 @@ label, .label{
   transition: all 200ms ease-in-out;
  
 
-  &:hover{
+  &:not([disabled]):hover{
 	background-color: $text;
 	color: $bg
+  }
+
+  &[disabled]{
+	border: 2px solid darken($text, 70%);
+	color: darken($text, 70%);
   }
 }
