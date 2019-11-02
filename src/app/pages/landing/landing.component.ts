@@ -8,7 +8,7 @@ import { Meta } from '@angular/platform-browser';
 	templateUrl: './landing.component.html',
 	styleUrls: ['./landing.component.scss']
 })
-export class LandingPage implements OnInit {
+export class LandingPageComponent implements OnInit {
 	name: string;
 	id: string;
 	css: string;

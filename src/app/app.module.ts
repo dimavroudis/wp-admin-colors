@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WpAdminMockComponent } from './components/wp-admin-mock/wp-admin-mock.component';
-import { CustomizerComponent } from './components/customizer/customizer.component';
-import { LandingPage } from './pages/landing/landing.component';
-import { CodeComponent } from './components/code/code.component';
+import { WpAdminMockComponent } from './partials/wp-admin-mock/wp-admin-mock.component';
+import { CustomizerComponent } from './partials/customizer/customizer.component';
+import { LandingPageComponent } from './pages/landing/landing.component';
+import { CodeComponent } from './partials/code/code.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ExportPage } from './pages/export/export.component';
-import {AnalyticsService} from './services/analytics.service';
+import { ExportPageComponent } from './pages/export/export.component';
+import { AnalyticsService } from './services/analytics.service';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,9 +24,9 @@ export function createTranslateLoader(http: HttpClient) {
 		AppComponent,
 		WpAdminMockComponent,
 		CustomizerComponent,
-		LandingPage,
+		LandingPageComponent,
 		CodeComponent,
-		ExportPage
+		ExportPageComponent
 	],
 	imports: [
 		BrowserModule,

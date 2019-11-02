@@ -11,7 +11,7 @@ import { AnalyticsService } from 'src/app/services/analytics.service';
 	templateUrl: './export.component.html',
 	styleUrls: ['./export.component.scss']
 })
-export class ExportPage implements OnInit {
+export class ExportPageComponent implements OnInit {
 
 	isGenerated: boolean;
 	php: string;

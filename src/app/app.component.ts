@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AnalyticsService } from './services/analytics.service';
-
-declare let gtag: Function;
-
 @Component({
 	selector: 'wpasg-root',
 	templateUrl: './app.component.html',
