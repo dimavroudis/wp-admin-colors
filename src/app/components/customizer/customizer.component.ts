@@ -1,5 +1,4 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-
 import { Color } from 'src/app/models/colors.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ValidationService } from 'src/app/services/validation.service';

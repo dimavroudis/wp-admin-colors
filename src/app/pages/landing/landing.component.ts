@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
 import { Color } from 'src/app/models/colors.model';
 import { Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
 	templateUrl: './landing.component.html',
@@ -15,11 +16,12 @@ export class LandingPage implements OnInit {
 	colors: Array<Color>;
 	mockColors: any;
 
-	constructor(private generator: GeneratorService, private router: Router ) {
+	constructor(private generator: GeneratorService, private router: Router, private meta: Meta ) {
 		this.mockColors = {};
 	}
 
 	ngOnInit() {
+		this.meta.addTag({ name: 'description', content: 'Create your own Wordpress Admin Scheme in seconds!' });
 		this.id = this.generator.getId();
 		this.name = this.generator.getName();
 		this.colors = this.generator.getAllColors();
@@ -30,7 +32,7 @@ export class LandingPage implements OnInit {
 		this.generator.setAllColors(this.colors);
 		this.generator.setName(this.name);
 		this.generator.setId(this.id);
-		this.router.navigate(['/export']);
+		this.router.navigate(['/export', this.id]);
 	}
 
 	setColors(colors) {

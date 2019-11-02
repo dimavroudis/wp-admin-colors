@@ -1,5 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
+import { ValidationService } from './validation.service';
+import { StorageService } from './storage.service';
+import { Observable } from 'rxjs';
 
 declare const Sass: any;
 
@@ -17,8 +20,7 @@ export class GeneratorService {
 
 	statusChaged: EventEmitter<any> = new EventEmitter();
 
-
-	constructor() {
+	constructor(private storage: StorageService, private validator: ValidationService) {
 		this.colors = [
 			{
 				name: 'text-color',
@@ -56,7 +58,7 @@ export class GeneratorService {
 	}
 
 	setColor(name: string, hex: string): Array<Color> | boolean {
-		const isColorHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex);
+		const isColorHex = this.validator.isHex(hex);
 		const index = this.colors.findIndex(color => color.name === name);
 		if (isColorHex && index > -1) {
 			this.colors[index].hex = hex;
@@ -110,13 +112,45 @@ export class GeneratorService {
 		return this.php;
 	}
 
-	generateCSS(): Promise<void> {
+	init(id: string): boolean {
+		const data = this.storage.getScheme(id);
+		if (this.id === id) {
+			return true;
+		} else if (data !== null) {
+			this.setId(id);
+			this.setName(data.name);
+			this.setAllColors(data.colors);
+			return true;
+		}
+		return false;
+	}
+
+	generate(): Observable<any> {
+		this.generateCSS();
+		this.generatePHP();
+		this.storage.saveScheme(this.id, this.name, this.colors);
+		return this.statusChaged;
+	}
+
+	reset(): void {
+		this.css = '';
+		this.php = '';
+		this.isComplete = false;
+	}
+
+	clean(): void {
+		this.id = '';
+		this.name = '';
+		this.colors = [];
+	}
+
+	private generateCSS(): Promise<void> {
 		return this.mergeSass().then(sass => {
 			this.convertSASStoCSS(sass);
 		});
 	}
 
-	generatePHP(): Promise<string> {
+	private generatePHP(): Promise<string> {
 		return fetch('assets/generator/functions.php.txt').then(template => template.text()).then(results => {
 			return results
 				.replace(/{{name}}/g, this.name)
@@ -128,12 +162,12 @@ export class GeneratorService {
 		}).then(php => {
 			this.php = php;
 			this.isComplete = !!this.php && !!this.css;
-			this.statusChaged.emit({'status': 'generated:php', 'done': this.isComplete});
+			this.statusChaged.emit({ 'status': 'generated:php', 'done': this.isComplete });
 			return this.php;
 		});
 	}
 
-	getVariableSCSS(): string {
+	private getVariableSCSS(): string {
 		let variableSCSS = '';
 		if (this.colors) {
 			this.colors.forEach(color => {
@@ -143,29 +177,18 @@ export class GeneratorService {
 		return variableSCSS;
 	}
 
-	mergeSass(): Promise<string> {
+	private mergeSass(): Promise<string> {
 		return fetch('assets/generator/wp_admin.scss').then(template => template.text()).then(results => {
 			return this.getVariableSCSS() + results;
 		});
 	}
 
-	convertSASStoCSS(sass): void {
-		Sass.compile(sass, (result) => {
+	private convertSASStoCSS(sass): void {
+		Sass.compile(sass, { style: Sass.style.expanded }, (result) => {
 			this.css = result.text;
 			this.isComplete = !!this.php && !!this.css;
-			this.statusChaged.emit({'status': 'generated:css', 'done': this.isComplete});
+			this.statusChaged.emit({ 'status': 'generated:css', 'done': this.isComplete });
 		});
-	}
 
-	reset(){
-		this.css = '';
-		this.php = '';
-		this.isComplete = false;
-	}
-
-	clean(){
-		this.id = '';
-		this.name = '';
-		this.colors = [];
 	}
 }

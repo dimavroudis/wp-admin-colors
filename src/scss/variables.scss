@@ -1,3 +1,70 @@
-$text: #fff;
-$bg: #1d1d1d;
-$light-text: #ababab;
+:root {
+
+  --color-dark: #1d1d1d;
+  --color-light: #dcdcdc;
+  --color-medium-light: #ababab;
+  --color-medium-dark: #5a5a5a;
+  --color-primary: #0073aa;
+  --color-primary-tint: #008dd0;
+  --color-primary-shade: #005680;
+
+  --wpasg-background: var(--color-dark);
+  --wpasg-text: var(--color-light);
+  --wpasg-title: var(--color-light);
+  --wpasg-highlight: var(--color-medium-dark);
+
+  --wpasg-link: var(--color-primary);
+  --wpasg-link-visited: var(--color-primary-tint);
+
+  --wpasg-input: var(--color-light);
+  --wpasg-input-disabled: var(--color-medium-light);
+
+  --wpasg-btn: var(--color-light);
+  --wpasg-btn-contract: var(--color-dark);
+  --wpasg-btn-disabled: var(--color-medium-light);
+  --wpasg-btn-focused: var(--color-dark);
+  --wpasg-btn-bg-focused: var(--color-light);
+
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+
+    --wpasg-background: var(--color-light);
+    --wpasg-text: var(--color-dark);
+    --wpasg-title: var(--color-dark);
+    --wpasg-highlight: var(--color-primary);
+
+    --wpasg-link: var(--color-primary);
+    --wpasg-link-visited: var(--color-primary-shade);
+
+    --wpasg-input: var(--color-dark-dark);
+    --wpasg-input-disabled: var(--color-medium);
+
+    --wpasg-btn: var(--color-dark);
+    --wpasg-btn-contract: var(--color-light);
+    --wpasg-btn-disabled: var(--color-medium-dark);
+    --wpasg-btn-focused: var(--color-light);
+    --wpasg-btn-bg-focused: var(--color-dark);
+
+  }
+}
+
+:root.light {
+  --wpasg-background: var(--color-light);
+  --wpasg-text: var(--color-dark);
+  --wpasg-title: var(--color-dark);
+  --wpasg-highlight: var(--color-primary);
+
+  --wpasg-link: var(--color-primary);
+  --wpasg-link-visited: var(--color-primary-shade);
+
+  --wpasg-input: var(--color-dark-dark);
+  --wpasg-input-disabled: var(--color-medium);
+
+  --wpasg-btn: var(--color-dark);
+  --wpasg-btn-contract: var(--color-light);
+  --wpasg-btn-disabled: var(--color-medium-dark);
+  --wpasg-btn-focused: var(--color-light);
+  --wpasg-btn-bg-focused: var(--color-dark);
+}

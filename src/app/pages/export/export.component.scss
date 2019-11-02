@@ -1,5 +1,30 @@
 .export {
   width: 70%;
+
+  ol {
+    list-style: none;
+    padding-left: 40px;
+    padding-top: 10px;
+    counter-reset: list;
+  }
+
+  li:before {
+    content: counter(list);
+    position: absolute;
+    font-size: 100px;
+    color: var(--wpasg-highlight);
+    z-index: 0;
+    left: -47px;
+    top: 13px;
+	font-family: monospace;
+	line-height: 1;
+  }
+
+  li {
+    position: relative;
+	counter-increment: list;
+	margin-bottom: 3em;
+  }
 }
 
 code-block:not(:last-child) {

@@ -5,7 +5,8 @@ import { ExportPage } from './pages/export/export.component';
 
 const routes: Routes = [
 	{ path: '', component: LandingPage },
-	{ path: 'export', component: ExportPage }
+	{ path: 'export/:id', component: ExportPage },
+	{ path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

@@ -2,15 +2,18 @@
   display: block;
   width: 100%;
   pointer-events: none;
+  border-radius: 4px;
+  overflow: hidden;
 
-  --body-background: #fff;
-  --base-color: #23282d;
-  --highlight-color: #0073aa;
-  --notification-color: #d54e21;
-  --text-color: #fff;
-  --link: #0073aa;
-  --button-color: #0073aa;
-  --form-checked: #0073aa;
+  --mock-body-background: #fff;
+  --mock-base-color: #23282d;
+  --mock-highlight-color: #0073aa;
+  --mock-notification-color: #d54e21;
+  --mock-text-color: #fff;
+  --mock-link: #0073aa;
+  --mock-button-color: #0073aa;
+  --mock-form-checked: #0073aa;
+  --mock-submenu-color: #1c2126;
 }
 
 .wrapper {
@@ -18,15 +21,15 @@
   overflow: hidden;
   width: 100%;
   padding-bottom: 50%;
-  background: white;
-  box-shadow: 7px 8px 20px 0px black;
+  background:  var(--wpasg-background);
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
 
   h2 {
     font-size: 0.8rem;
   }
 
   a {
-    color: var(--link);
+    color: var(--mock-link);
   }
 
   * {
@@ -43,7 +46,7 @@
     border-radius: 0.8em;
     font-size: 0.7em;
     text-align: center;
-    background: var(--notification-color)
+    background: var(--mock-notification-color)
   }
 
   .button-primary {
@@ -61,10 +64,10 @@
     border-radius: 3px;
     white-space: nowrap;
     box-sizing: border-box;
-    background: var(--button-color);
-    border-color: var(--button-color);
+    background: var(--mock-button-color);
+    border-color: var(--mock-button-color);
     color: #fff;
-    box-shadow: 0 1px 0 var(--button-color);
+    box-shadow: 0 1px 0 var(--mock-button-color);
     opacity: 1;
   }
 }
@@ -78,8 +81,8 @@
   justify-content: space-between;
   align-items: center;
   z-index: inherit;
-  background: var(--base-color);
-  color: var(--text-color);
+  background: var(--mock-base-color);
+  color: var(--mock-text-color);
 
   .start {
     display: flex;
@@ -120,7 +123,6 @@
   top: 24px;
   height: calc(100% - 24px);
   width: 100%;
-  background: var(--body-background);
 }
 
 #adminmenumain {
@@ -128,8 +130,8 @@
   max-width: 140px;
   height: 100%;
   flex-shrink: 0;
-  background: var(--base-color);
-  color: var(--text-color);
+  background: var(--mock-base-color);
+  color: var(--mock-text-color);
 }
 
 #wpbody {
@@ -137,6 +139,7 @@
   height: 100%;
   padding: .8em;
   color: #23282d;
+  background: var(--mock-body-background);
 
   th {
     vertical-align: top;
@@ -203,7 +206,7 @@
     &:checked::before {
       content: "\f147";
       margin: -3px 0 0 -4px;
-      color: var(--form-checked);
+      color: var(--mock-form-checked);
     }
   }
 
@@ -224,7 +227,7 @@
       height: 5px;
       margin: 3px;
       line-height: 12px;
-      background: var(--form-checked);
+      background: var(--mock-form-checked);
     }
   }
 
@@ -279,7 +282,7 @@
 
     &.active {
       font-weight: 700;
-      background-color: var(--highlight-color)
+      background-color: var(--mock-highlight-color)
     }
 
   }
@@ -299,8 +302,7 @@
   }
 
   .submenu {
-    background: var(--base-color);
-    filter: brightness(70%);
+    background: var(--mock-submenu-color);
 
     .menu-item {
       font-size: 0.85em;

@@ -1,17 +1,33 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>WP Admin Scheme Generator</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1d1d1d">
-</head>
-<body>
-  <wpasg-root></wpasg-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>WP Admin Scheme Generator</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1d1d1d">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79194198-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+	  gtag('js', new Date());
+
+      gtag('config', 'UA-79194198-4',  { 'anonymize_ip': true });
+
+    </script>
+  </head>
+
+  <body>
+    <wpasg-root></wpasg-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
+  </body>
+
 </html>
