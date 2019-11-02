@@ -20,7 +20,7 @@
   overflow: hidden;
   width: 100%;
   padding-bottom: 50%;
-  background:  var(--wpasg-background);
+  background: var(--wpasg-background);
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
 
   h2 {
@@ -215,17 +215,19 @@
     margin-top: -4px;
     margin-right: 4px;
     float: none;
-    line-height: 10px;
+	line-height: 10px;
+	position: relative;
 
     &:checked::before {
-      content: "\2022";
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       text-indent: -9999px;
-      border-radius: 50px;
-      font-size: 18px;
+      border-radius: 50%;
       width: 5px;
       height: 5px;
-      margin: 3px;
-      line-height: 12px;
       background: var(--mock-form-checked);
     }
   }
@@ -257,6 +259,7 @@
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+    margin-top: 3px;
 
     td {
       height: 12px;
