@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ExportPage } from './pages/export/export.component';
+import {AnalyticsService} from './services/analytics.service';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,7 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		ColorPickerModule
 	],
-	providers: [],
+	providers: [AnalyticsService],
 	bootstrap: [AppComponent],
 	exports: [WpAdminMockComponent, CodeComponent, CustomizerComponent]
 })
