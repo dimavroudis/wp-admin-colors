@@ -26,4 +26,8 @@ export class ValidationService {
 	makeSafeName(name: string): string {
 		return name;
 	}
+
+	isHex(subject: string): boolean {
+		return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(subject);
+	}
 }
