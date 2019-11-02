@@ -16,6 +16,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ExportPageComponent } from './pages/export/export.component';
 import { AnalyticsService } from './services/analytics.service';
+import { ToastrModule } from 'ngx-toastr';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,6 +36,13 @@ export function createTranslateLoader(http: HttpClient) {
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
+		ToastrModule.forRoot({
+			easing: 'ease-in-out',
+			positionClass: 'toast-bottom-right',
+			timeOut: 3000,
+			maxOpened: 5,
+			autoDismiss: true
+		}),
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,

@@ -3,7 +3,7 @@ import hljs from 'highlight.js';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 import { fadeInUp } from 'src/app/animation';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'wpasg-code-block',
@@ -23,7 +23,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 	@Input() downloadFileType: string;
 
 
-	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService) {
+	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService, private toastr: ToastrService) {
 
 	}
 
@@ -61,6 +61,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 		el.select();
 		document.execCommand('copy');
 		document.body.removeChild(el);
+		this.toastr.success('Copied!');
 	}
 
 	trackDownload() {
@@ -68,6 +69,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 			'event_category': 'engangement',
 			'event_label': this.type
 		});
+		this.toastr.success('Downloading has started...');
 	}
 
 }

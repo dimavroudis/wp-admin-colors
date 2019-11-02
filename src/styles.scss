@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 @import 'scss/variables';
 @import 'scss/editor';
 @import 'scss/dashicons';
+
+@import 'scss/toast';
+
 
 * {
   box-sizing: border-box;
