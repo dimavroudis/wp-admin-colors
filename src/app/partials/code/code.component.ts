@@ -2,12 +2,14 @@ import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import hljs from 'highlight.js';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AnalyticsService } from 'src/app/services/analytics.service';
+import { fadeInUp } from 'src/app/animation';
 
 
 @Component({
 	selector: 'wpasg-code-block',
 	templateUrl: './code.component.html',
 	styleUrls: ['./code.component.scss'],
+	animations: [fadeInUp]
 })
 export class CodeComponent implements OnInit, AfterViewInit {
 	textFile: string;

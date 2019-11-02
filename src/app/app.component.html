@@ -14,7 +14,9 @@
         [attr.aria-checked]="prefersLight ? 'true' : false"></button>
     </div>
   </header>
-  <router-outlet></router-outlet>
+  <div class="content" [@routerAnimation]="prepareRoute(outlet)">
+	<router-outlet #outlet="outlet"></router-outlet>
+</div>
   <footer class="footer">
     Made by <a href="https://mavrou.gr">Dimitris Mavroudis</a>
   </footer>

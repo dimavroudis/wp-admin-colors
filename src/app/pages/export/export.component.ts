@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
-import { Color } from 'src/app/models/colors.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';

@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { AnalyticsService } from './services/analytics.service';
+import { routerAnimation } from './animation';
 @Component({
 	selector: 'wpasg-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss']
+	styleUrls: ['./app.component.scss'],
+	animations: [
+		routerAnimation
+	]
 })
 export class AppComponent {
 	prefersLight: boolean;
@@ -42,5 +46,8 @@ export class AppComponent {
 		return this.prefersLight;
 	}
 
+	prepareRoute(outlet: RouterOutlet) {
+		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+	}
 
 }

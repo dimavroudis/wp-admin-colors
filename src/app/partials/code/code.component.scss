@@ -1,20 +1,22 @@
 :host {
   display: block;
   position: relative;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
+.block{
+	box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
+	border-radius: 4px;
+	overflow: hidden;
+}
 code {
   max-height: 380px;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.header{
-	width: 100%;
-	position: relative;
+.header {
+  width: 100%;
+  position: relative;
 }
 
 .title {
@@ -42,8 +44,8 @@ code {
     transform: scale(1.12);
   }
 
-  &:focus{
-	outline: 0;
+  &:focus {
+    outline: 0;
   }
 
   &:active {
@@ -61,7 +63,7 @@ code {
 
 
 @media (max-width: 768px) {
-	.download-link {
-		bottom: -50px;
-	}
+  .download-link {
+    bottom: -50px;
   }
+}
