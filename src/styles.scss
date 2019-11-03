@@ -162,6 +162,11 @@ label,
     display: block;
     width: 4em;
     height: 2em;
+    padding: 2px;
+    transition: all .2s ease;
+    background: var(--color-light);
+    border: 1px solid var(--color-light);
+    border-radius: 2em;
     position: relative;
     cursor: pointer;
     user-select: none;
@@ -177,31 +182,14 @@ label,
 
     &:after {
       left: 0;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
-
-  &:checked+.toggle-btn:after {
-    left: 50%;
-  }
-}
-
-.toggle-flat {
-  +.toggle-btn {
-    padding: 2px;
-    transition: all .2s ease;
-    background: var(--color-light);
-    border: 1px solid var(--color-light);
-    border-radius: 2em;
-
-    &:after {
       transition: all .2s ease;
       background: var(--color-dark);
       content: "";
       border-radius: 1em;
+    }
+
+    &:before {
+      display: none;
     }
   }
 
@@ -213,5 +201,46 @@ label,
       left: 50%;
       background: var(--color-light);
     }
+  }
+}
+
+.loading-screen {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  svg {
+    width: 50vw;
+    stroke: #fff;
+    stroke-width: 0.75;
+
+    path {
+      fill: none;
+      stroke-dasharray: 280;
+      stroke-dashoffset: 0;
+      animation: paint 1.8s ease infinite alternate;
+    }
+  }
+
+  &.generator {
+    height: calc(100vh - 172px);
+
+    svg {
+      width: 50vh;
+    }
+  }
+}
+
+@keyframes paint {
+  0% {
+    stroke-dashoffset: 280;
   }
 }

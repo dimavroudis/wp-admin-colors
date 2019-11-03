@@ -16,24 +16,19 @@
     z-index: 0;
     left: -47px;
     top: 13px;
-	font-family: monospace;
-	line-height: 1;
+    // font-family: 'Intro-Alt';
+    line-height: 1;
   }
 
   li {
     position: relative;
-	counter-increment: list;
-	margin-bottom: 3em;
+    counter-increment: list;
+    margin-bottom: 3em;
   }
 }
 
 code-block:not(:last-child) {
   margin-bottom: 1em;
-}
-
-.logo {
-  max-width: 300px;
-  margin-bottom: 1.8em;
 }
 
 @media (max-width: 768px) {
