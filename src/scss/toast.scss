@@ -67,12 +67,12 @@
   float: right;
   font-size: 20px;
   font-weight: bold;
-  color: var(--wpasg-toast-text);
+  color: var(--wpasg-color-toast-text);
 }
 
 .toast-close-button:hover,
 .toast-close-button:focus {
-  color: var(--wpasg-toast-text);
+  color: var(--wpasg-color-toast-text);
   text-decoration: none;
   cursor: pointer;
   opacity: 0.4;
@@ -109,9 +109,9 @@ button.toast-close-button {
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 24px;
-  background-color: var(--wpasg-toast-bg);
+  background-color: var(--wpasg-color-toast-bg);
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.12), 3px 3px 20px rgba(0, 0, 0, 0.23);
-  color: var(--wpasg-toast-text);
+  color: var(--wpasg-color-toast-text);
   pointer-events: auto;
 
   &:hover {

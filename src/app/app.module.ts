@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ExportPageComponent } from './pages/export/export.component';
 import { AnalyticsService } from './services/analytics.service';
 import { ToastrModule } from 'ngx-toastr';
+import { OnboardingComponent } from './partials/onboarding/onboarding.component';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,7 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
 		CustomizerComponent,
 		LandingPageComponent,
 		CodeComponent,
-		ExportPageComponent
+		ExportPageComponent,
+		OnboardingComponent
 	],
 	imports: [
 		BrowserModule,

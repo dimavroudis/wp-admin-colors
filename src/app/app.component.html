@@ -1,6 +1,6 @@
 <div class="wrapper">
   <header class="header">
-    <a class="logo" href="/">
+    <a class="logo" [routerLink]="['/']">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205.2 40.6">
         <title>WP Admin Scheme Generator</title>
         <path
@@ -9,9 +9,8 @@
     </a>
     <div class="toggle-color">
       <label id="toggleColorLabel" for="toggleColor">Dark or Light?</label>
-      <input class="toggle toggle-flat" id="toggleColor" type="checkbox" [(ngModel)]="prefersLight">
-      <button class="toggle-btn" (click)="changeScheme()" role="switch" aria-labelledby="toggleColorLabel"
-        [attr.aria-checked]="prefersLight ? 'true' : false"></button>
+      <button class="toggle-btn" (click)="toggleScheme()" role="switch" id="toggleColor" aria-labelledby="toggleColorLabel"
+        [attr.aria-checked]="isLight()"></button>
     </div>
   </header>
   <div class="content" [@routerAnimation]="prepareRoute(outlet)">

@@ -1,15 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
 import { DomSanitizer } from '@angular/platform-browser';
-import { fadeInLeft, fadeOutRight } from 'src/app/animation';
 @Component({
 	selector: 'wpasg-mockup',
 	templateUrl: './wp-admin-mock.component.html',
 	styleUrls: ['./wp-admin-mock.component.scss'],
-	animations: [
-		fadeInLeft,
-		fadeOutRight
-	]
 })
 export class WpAdminMockComponent implements OnInit {
 

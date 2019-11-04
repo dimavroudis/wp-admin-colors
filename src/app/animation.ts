@@ -9,10 +9,10 @@ export const routerAnimation = trigger('routerAnimation', [
 
 export const fadeInDown = trigger('fadeInDown', [
 	transition(':enter', [
-		style({ transform: 'translateY(-100%)', opacity: 0 }),
+		style({ transform: 'translateY(-100px)', opacity: 0 }),
 		animate('800ms ease-in-out', keyframes([
-			style({ transform: 'translateY(-60%)', opacity: 0 }),
-			style({ transform: 'translateY(0%)', opacity: 1 }),
+			style({ transform: 'translateY(-60px)', opacity: 0 }),
+			style({ transform: 'translateY(0)', opacity: 1 }),
 		])),
 		animateChild()
 	]),
@@ -21,10 +21,10 @@ export const fadeInDown = trigger('fadeInDown', [
 
 export const fadeInUp = trigger('fadeInUp', [
 	transition(':enter', [
-		style({ transform: 'translateY(100%)', opacity: 0 }),
+		style({ transform: 'translateY(100px)', opacity: 0 }),
 		animate('800ms ease-in-out', keyframes([
-			style({ transform: 'translateY(60%)', opacity: 0 }),
-			style({ transform: 'translateY(0%)', opacity: 1 }),
+			style({ transform: 'translateY(60px)', opacity: 0 }),
+			style({ transform: 'translateY(0)', opacity: 1 }),
 		])),
 		animateChild()
 	])
@@ -34,9 +34,9 @@ export const fadeInUp = trigger('fadeInUp', [
 
 export const fadeInRight = trigger('fadeInRight', [
 	transition(':enter', [
-		style({ transform: 'translateX(-100%)', opacity: 0 }),
+		style({ transform: 'translateX(-100px)', opacity: 0 }),
 		animate('800ms ease-in-out', keyframes([
-			style({ transform: 'translateX(-60%)', opacity: 0 }),
+			style({ transform: 'translateX(-60px)', opacity: 0 }),
 			style({ transform: 'translateX(0%)', opacity: 1 }),
 		])),
 		animateChild()
@@ -46,10 +46,10 @@ export const fadeInRight = trigger('fadeInRight', [
 
 export const fadeInLeft = trigger('fadeInLeft', [
 	transition(':enter', [
-		style({ transform: 'translateX(100%)', opacity: 0 }),
+		style({ transform: 'translateX(100px)', opacity: 0 }),
 		animate('800ms ease-in-out', keyframes([
-			style({ transform: 'translateX(60%)', opacity: 0 }),
-			style({ transform: 'translateX(0%)', opacity: 1 }),
+			style({ transform: 'translateX(60px)', opacity: 0 }),
+			style({ transform: 'translateX(0)', opacity: 1 }),
 		])),
 		animateChild()
 	]),
@@ -59,8 +59,8 @@ export const fadeOutRight = trigger('fadeInLeft', [
 	transition(':enter',  [
 		style({ transform: 'translateX(0%)', opacity: 1 }),
 		animate('800ms ease-in-out', keyframes([
-			style({ transform: 'translateX(10%)', opacity: 1 }),
-			style({ transform: 'translateX(100%)', opacity: 0 }),
+			style({ transform: 'translateX(10px)', opacity: 1 }),
+			style({ transform: 'translateX(100px)', opacity: 0 }),
 		])),
 		animateChild()
 	]),

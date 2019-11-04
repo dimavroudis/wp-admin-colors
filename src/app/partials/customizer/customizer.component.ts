@@ -2,14 +2,14 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ValidationService } from 'src/app/services/validation.service';
-import { fadeInUp } from 'src/app/animation';
+import { fadeIn } from 'src/app/animation';
 
 
 @Component({
 	selector: 'wpasg-customizer',
 	templateUrl: './customizer.component.html',
 	styleUrls: ['./customizer.component.scss'],
-	animations: [ fadeInUp ]
+	animations: [ fadeIn ]
 })
 export class CustomizerComponent {
 	@Input() colors: Array<Color>;

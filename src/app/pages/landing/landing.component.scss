@@ -1,20 +1,23 @@
-
-:host{
-	display: block;
-    position: relative;
+:host {
+  display: block;
+  position: relative;
 }
+
 .mockup {
   position: absolute;
   top: 50%;
   left: 0;
-  width: calc(100vw - 360px + 6rem);
+  width: calc(100vw - 380px + 3rem);
   min-width: 720px;
   max-width: 1000px;
-  transform: translate(calc(360px + 6rem), -50%)
+  transform: translate(calc(380px + 3rem), -50%)
 }
 
 .customizer {
-  width: 360px;
+  display: flex;
+  align-items: center;
+  width: 380px;
+  min-height: 570px;
 }
 
 

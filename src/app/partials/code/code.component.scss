@@ -21,7 +21,7 @@ code {
 
 .title {
   padding: 10px;
-  background: var(--wpasg-background);
+  background: var(--wpasg-color-background);
 }
 
 .download-link {
@@ -30,9 +30,9 @@ code {
   right: 3%;
   padding: 6px 18px;
   border-radius: 50px;
-  border: 1px solid var(--wpasg-btn);
-  color: var(--wpasg-btn-contract);
-  background-color: var(--wpasg-btn);
+  border: 1px solid var(--wpasg-color-btn);
+  color: var(--wpasg-color-btn-contract);
+  background-color: var(--wpasg-color-btn);
   font-size: 16px;
   text-decoration: none;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);

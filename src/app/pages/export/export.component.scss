@@ -12,11 +12,10 @@
     content: counter(list);
     position: absolute;
     font-size: 100px;
-    color: var(--wpasg-highlight);
+    color: var(--wpasg-color-highlight);
     z-index: 0;
     left: -47px;
     top: 13px;
-    // font-family: 'Intro-Alt';
     line-height: 1;
   }
 

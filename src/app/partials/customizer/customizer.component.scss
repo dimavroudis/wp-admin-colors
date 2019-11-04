@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .customizer {
 
   .section {
@@ -6,8 +11,8 @@
     padding: 8px 0;
   }
 
-  .options{
-	margin-bottom:1.2em;
+  .options {
+    margin-bottom: 1.2em;
   }
 
 }

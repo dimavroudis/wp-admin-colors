@@ -1,4 +1,4 @@
-<div class="container" @fadeInLeft @fadeOutRight *ngIf="colors" [attr.style]="getCssVariables()">
+<div class="container" *ngIf="colors" [attr.style]="getCssVariables()" aria-hidden="true">
   <div class="wrapper">
     <div id="wpadminbar">
       <div class="start">
