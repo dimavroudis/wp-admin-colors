@@ -1,26 +1,25 @@
-<section @fadeIn class="customizer">
+<div @fadeIn>
   <div class="options">
-    <div class="section stacked">
+    <div class="stacked form-row">
       <label for="schemeName">{{ 'scheme-name' | translate}}</label>
       <input id="schemeName" [(ngModel)]="name" (change)="nameChange($event.target.value)" type="text" />
     </div>
-    <div class="section stacked">
+    <div class="stacked form-row">
       <label for="schemeId">{{ 'scheme-id' | translate}}</label>
       <input id="schemeId" [(ngModel)]="id" (change)="idChange($event.target.value)" type="text" />
-	</div>
-	<div class="section stacked">
-		<span class="label">{{ 'choose-base-colors' | translate}}</span>
-		<div *ngFor="let color of colors" class="section">
-			
-		<div class="color-input" [(colorPicker)]="color.hex" [style.background]="color.hex" cpAlphaChannel="false"
-			[cpOutputFormat]="'hex'" cpDialogDisplay="popup" (colorPickerChange)="colorChange()">
-		</div>
-		<span>{{color.name | translate}}</span>
-		</div>
-	</div>
+    </div>
+    <fieldset class="stacked form-row">
+      <h2 class="label">{{ 'choose-base-colors' | translate}}</h2>
+      <div *ngFor="let color of colors" class="color">
+        <div class="color-input" [(colorPicker)]="color.hex" [style.background]="color.hex" cpAlphaChannel="false"
+          [cpOutputFormat]="'hex'" cpDialogDisplay="popup" (colorPickerChange)="colorChange()">
+        </div>
+        <span>{{color.name | translate}}</span>
+      </div>
+    </fieldset>
   </div>
 
   <div>
-    <button [disabled]="!name || !id" class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
+    <button class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
   </div>
-</section>
+</div>

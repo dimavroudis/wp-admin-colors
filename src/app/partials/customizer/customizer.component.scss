@@ -3,16 +3,28 @@
   width: 100%;
 }
 
-.customizer {
+.options {
+  margin-bottom: 1.2em;
+}
 
-  .section {
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 8px 0;
-  }
+.form-row {
+  margin: 1em 0;
+}
 
-  .options {
+
+fieldset.form-row {
+  margin-top: 1.2em;
+  padding: 0;
+  border: 0;
+
+  h2 {
+    margin-top: 0;
     margin-bottom: 1.2em;
   }
+}
 
+.color {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0.8em 0;
 }

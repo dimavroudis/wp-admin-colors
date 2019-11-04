@@ -101,11 +101,12 @@ button.toast-close-button {
 .toast-container .ngx-toastr {
   position: relative;
   display: flex;
+  align-items: center;
   overflow: hidden;
   margin: 0 0 6px;
-  padding: 15px 15px 15px 30px;
-  width: 300px;
-  border-radius: 30px;
+  padding: 15px 15px 15px 20px;
+  width: 100%;
+  border-radius: 100px;
   background-position: 15px center;
   background-repeat: no-repeat;
   background-size: 24px;
@@ -121,8 +122,8 @@ button.toast-close-button {
 
   &:before {
 	display: inline-block;
-	margin-right: 5px;
-    margin-inline-end: 5px;
+	margin-right: 10px;
+    margin-inline-end: 10px;
     margin-inline-start: 0;
     flex-shrink: 0;
     font-family: 'Dashicons';
@@ -137,7 +138,8 @@ button.toast-close-button {
   }
 
   &.toast-error {
-    background-color: #BD362F;
+	background-color: #BD362F;
+	color: var(--color-light);
 
     &:before {
       content: "\f158";
@@ -161,15 +163,14 @@ button.toast-close-button {
 
 .toast-container.toast-top-center .ngx-toastr,
 .toast-container.toast-bottom-center .ngx-toastr {
-  max-width: 300px;
-  width: 100%;
+  max-width: 360px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .toast-container.toast-top-full-width .ngx-toastr,
 .toast-container.toast-bottom-full-width .ngx-toastr {
-  width: 96%;
+  max-width: 96%;
   margin-left: auto;
   margin-right: auto;
 }

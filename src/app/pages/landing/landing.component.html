@@ -1,12 +1,15 @@
-<article class="customizer">
-  <ng-template [ngIf]="!init">
-    <wpasg-onboarding (start)="init = true"></wpasg-onboarding>
-  </ng-template>
-  <ng-template [ngIf]="init">
-    <wpasg-customizer [colors]="colors" [name]="name" [id]="id" (colorChanged)="setColors($event)"
-      (nameChanged)="setName($event)" (idChanged)="setId($event)" (submited)="generateScheme()"></wpasg-customizer>
-  </ng-template>
+<article>
+  <section class="customizer" aria-live="polite">
+    <ng-template [ngIf]="!init">
+      <wpasg-onboarding (start)="init = true"></wpasg-onboarding>
+    </ng-template>
+    <ng-template [ngIf]="init">
+      <wpasg-customizer [colors]="colors" [name]="name" [id]="id" (colorChanged)="setColors($event)"
+        (nameChanged)="setName($event)" (idChanged)="setId($event)" (submited)="generateScheme()"></wpasg-customizer>
+    </ng-template>
+  </section>
+
+  <aside class="mockup">
+    <wpasg-mockup [id]="id" [name]="name" [colors]="mockColors"></wpasg-mockup>
+  </aside>
 </article>
-<aside class="mockup">
-  <wpasg-mockup [id]="id" [name]="name" [colors]="mockColors"></wpasg-mockup>
-</aside>

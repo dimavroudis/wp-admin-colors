@@ -11,21 +11,19 @@
     </div>
   </div>
 </ng-template>
-<article class="export">
-  <ng-template [ngIf]="isGenerated">
-    <h1>Your scheme is ready.</h1>
-    <p class="lead">Follow the next steps to apply your theme or <a routerLink="/generate">go back</a> to edit these scheme
-      or create another.
-    </p>
-    <ol>
-      <li *ngIf="css">
-        <wpasg-code-block [code]="css" title="Add this stylesheet to you theme:" type="css" [download]="true"
-          [downloadFileName]="id + '.css'" downloadFileType="text/css"></wpasg-code-block>
-      </li>
-      <li *ngIf="php">
-        <wpasg-code-block [code]="php" title="Copy this code your functions.php file:" [copy]="true" type="php">
-        </wpasg-code-block>
-      </li>
-    </ol>
-  </ng-template>
+<article *ngIf="isGenerated" class="export">
+  <h1>Your scheme is ready.</h1>
+  <p class="lead">Follow the next steps to apply your theme or <a routerLink="/generate">go back</a> to edit these
+    scheme or create another.
+  </p>
+  <ol>
+    <li *ngIf="css">
+      <wpasg-code-block [code]="css" title="Add this stylesheet to you theme:" type="css" [download]="true"
+        [downloadFileName]="id + '.css'" downloadFileType="text/css"></wpasg-code-block>
+    </li>
+    <li *ngIf="php">
+      <wpasg-code-block [code]="php" title="Copy this code your functions.php file:" [copy]="true" type="php">
+      </wpasg-code-block>
+    </li>
+  </ol>
 </article>
