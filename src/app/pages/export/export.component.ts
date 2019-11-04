@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { AnalyticsService } from 'src/app/services/analytics.service';
 
@@ -22,7 +21,6 @@ export class ExportPageComponent implements OnInit {
 		private generator: GeneratorService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private meta: Meta,
 		private analytics: AnalyticsService
 	) {
 		this.isGenerated = false;
@@ -36,7 +34,6 @@ export class ExportPageComponent implements OnInit {
 		if (!this.id || !isValid) {
 			this.router.navigate(['/']);
 		} else {
-			this.meta.addTag({ name: 'description', content: '"' + this.generator.getName() + '" WP Admin Scheme' });
 			this.generatorProgress = this.generator.generate().subscribe(value => {
 				this.isGenerated = value.done;
 				if (this.isGenerated) {

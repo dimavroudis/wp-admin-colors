@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from 'src/app/services/generator.service';
 import { Color } from 'src/app/models/colors.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
 	templateUrl: './landing.component.html',
@@ -17,13 +16,12 @@ export class LandingPageComponent implements OnInit {
 	mockColors: any;
 	init: boolean;
 
-	constructor(private generator: GeneratorService, private router: Router,  private route: ActivatedRoute, private meta: Meta ) {
+	constructor(private generator: GeneratorService, private router: Router,  private route: ActivatedRoute ) {
 		this.mockColors = {};
 	}
 
 	ngOnInit() {
 		this.init = this.route.snapshot.data.state === 'init';
-		this.meta.addTag({ name: 'description', content: 'Create your own Wordpress Admin Scheme in seconds!' });
 		this.id = this.generator.getId();
 		this.name = this.generator.getName();
 		this.colors = this.generator.getAllColors();
