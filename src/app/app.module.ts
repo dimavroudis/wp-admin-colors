@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WpAdminMockComponent } from './partials/wp-admin-mock/wp-admin-mock.component';
@@ -18,6 +18,7 @@ import { ExportPageComponent } from './pages/export/export.component';
 import { AnalyticsService } from './services/analytics.service';
 import { ToastrModule } from 'ngx-toastr';
 import { OnboardingComponent } from './partials/onboarding/onboarding.component';
+import { FeedbackFormComponent } from './partials/feedback-form/feedback-form.component';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -30,17 +31,19 @@ export function createTranslateLoader(http: HttpClient) {
 		LandingPageComponent,
 		CodeComponent,
 		ExportPageComponent,
-		OnboardingComponent
+		OnboardingComponent,
+		FeedbackFormComponent
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		HttpClientModule,
+		ReactiveFormsModule,
 		FormsModule,
 		ToastrModule.forRoot({
 			easing: 'ease-in-out',
-			positionClass: 'toast-bottom-right',
+			positionClass: 'toast-top-right',
 			timeOut: 3000,
 			maxOpened: 5,
 			autoDismiss: true

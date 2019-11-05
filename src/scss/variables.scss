@@ -33,33 +33,6 @@
 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-
-    --wpasg-color-background: var(--color-light);
-	--wpasg-color-text: var(--color-dark);
-	--wpasg-color-text-alt: var(--color-medium-dark);
-    --wpasg-color-title: var(--color-dark);
-    --wpasg-color-highlight: var(--color-primary);
-
-    --wpasg-color-link: var(--color-primary);
-    --wpasg-color-link-visited: var(--color-primary-shade);
-
-    --wpasg-color-input: var(--color-dark-dark);
-    --wpasg-color-input-disabled: var(--color-medium);
-
-    --wpasg-color-btn: var(--color-dark);
-    --wpasg-color-btn-contract: var(--color-light);
-    --wpasg-color-btn-disabled: var(--color-medium-dark);
-    --wpasg-color-btn-focused: var(--color-light);
-	--wpasg-color-btn-bg-focused: var(--color-dark);
-	
-	--wpasg-color-toast-bg: var(--color-light-darker);
-  
-
-  }
-}
-
 :root.light {
   --wpasg-color-background: var(--color-light);
   --wpasg-color-text: var(--color-dark);

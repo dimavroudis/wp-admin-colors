@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  position: fixed;
+  bottom: 0;
+}
+
+.float-box {
+  width: 380px;
+  padding: 1.2em 1.2em 2em;
+  background: var(--color-primary);
+  color: var(--color-light);
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
+  border-radius: 4px 4px 0 0;
+}
+
+.stacked {
+  padding: 0.6em 0;
+}
+
+.ng-touched .ng-invalid+#rating {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #840000;
+}
+
+button.radio {
+  border: 1px solid var(--color-light);
+  border-radius: 60px;
+  background: transparent;
+  color: var(--color-light);
+  margin: 0 4px;
+  padding: 3px;
+  outline: 0;
+  transition: all 300ms ease-in-out;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+button.radio.selected {
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+button.radio:focus {
+  border-color: var(--color-dark);
+}
+
+.btn {
+  margin-top: 1em;
+}
+
+
+@media (max-width: 1200px) {
+  :host {
+    position: relative;
+  }
+
+}

@@ -59,8 +59,8 @@ h1 {
   color: var(--wpasg-color-title);
 }
 
-input {
-  height: 32px;
+input,
+textarea {
   padding: 0;
   background: transparent;
   border-width: 0 0 1px 0;
@@ -72,6 +72,13 @@ input {
     outline: 0;
     box-shadow: 0;
   }
+  &.ng-invalid{
+	  border-color:#840000;
+  }
+}
+
+input {
+  height: 32px;
 }
 
 label,
@@ -157,7 +164,7 @@ a.btn {
   cursor: pointer;
   user-select: none;
 
-  &:after{
+  &:after {
     position: relative;
     display: block;
     content: "";

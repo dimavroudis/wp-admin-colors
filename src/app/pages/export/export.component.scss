@@ -1,5 +1,20 @@
 .export {
-  width: 70%;
+  display: flex;
+  justify-content: space-between;
+
+  .sidebar {
+    position: relative;
+    width: 380px;
+    margin-top: 1em;
+    margin-left: 8%;
+    flex-shrink: 0;
+  }
+
+  .instructions {
+    width: 50%;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
 
   ol {
     list-style: none;
@@ -26,12 +41,24 @@
   }
 }
 
+
 code-block:not(:last-child) {
   margin-bottom: 1em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .export {
     width: 100%;
+    flex-wrap: wrap;
+
+    .sidebar{
+      width: 100%;
+	}
+	
+	.sidebar{
+		margin-top: 2em;
+		margin-left: 0;
+	}
   }
+
 }

@@ -1,0 +1,35 @@
+<h2 id="feedbackFormTitle">Care to leave a comment?</h2>
+<div class="float-box">
+  <form [formGroup]="feedbackForm" aria-labelledby="feedbackFormTitle"
+    *ngIf="status !=='success'; else success">
+    <div class="stacked rating" [ngClass]="{'invalid': rating?.invalid}">
+      <label for="rating">Rate your experience</label>
+      <input type="hidden" formControlName="rating">
+      <div id="rating" role="radiogroup" [ngClass]="{'touched': feedbackForm.value.rating}">
+        <button class="radio" role="radio" [ngClass]="{'selected': feedbackForm.value.rating === 'Awesome'}"
+          (click)="feedbackForm.patchValue({rating: 'Awesome'})">Awesome</button>
+        <button class="radio" role="radio" [ngClass]="{'selected': feedbackForm.value.rating === 'Good'}"
+          (click)="feedbackForm.patchValue({rating: 'Good'})">Good</button>
+        <button class="radio" role="radio" [ngClass]="{'selected': feedbackForm.value.rating === 'Needs work!'}"
+          (click)="feedbackForm.patchValue({rating: 'Needs work!'})">Needs work!</button>
+        <button class="radio" role="radio" [ngClass]="{'selected': feedbackForm.value.rating === 'Awfull'}"
+          (click)="feedbackForm.patchValue({rating: 'Awfull'})">Awfull</button>
+      </div>
+    </div>
+    <div class="stacked" [ngClass]="{'invalid': comment?.invalid}">
+      <label for="comment">Share your comment/feedback (optional)</label>
+      <textarea id="comment" name="comment" class="form-control" formControlName="comment"></textarea>
+    </div>
+    <div class="stacked" [ngClass]="{'invalid': email?.invalid}">
+      <label for="email">Your email, if you want an answer (optional)</label>
+      <input id="email" name="email" type="email" class="form-control" formControlName="email">
+    </div>
+    <button class="btn" type="submit" [disabled]="status=='sending'"
+      (click)="onSubmit()">{{status !=='sending' ? 'send your comment': 'sending your comment...'}}</button>
+  </form>
+  <ng-template #success>
+	<h3>Thanks for your feedback!</h3>
+	<p *ngIf="feedbackForm.value.rating === 'Awesome' || feedbackForm.value.rating === 'Good'">I am glad to hear you liked my project! Feel free to share it with any othet colleague or friend thta may find it usefull.</p>
+	<p *ngIf="feedbackForm.value.rating === 'Needs work!' || feedbackForm.value.rating === 'Awfull'">I am sorry to hear you didn't have a good experience using my genratator. I will make my best to improve it.</p>
+  </ng-template>
+</div>
