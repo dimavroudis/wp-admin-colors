@@ -28,8 +28,8 @@
       (click)="onSubmit()">{{status !=='sending' ? 'send your comment': 'sending your comment...'}}</button>
   </form>
   <ng-template #success>
-	<h3>Thanks for your feedback!</h3>
-	<p *ngIf="feedbackForm.value.rating === 'Awesome' || feedbackForm.value.rating === 'Good'">I am glad to hear you liked my project! Feel free to share it with any othet colleague or friend thta may find it usefull.</p>
-	<p *ngIf="feedbackForm.value.rating === 'Needs work!' || feedbackForm.value.rating === 'Awfull'">I am sorry to hear you didn't have a good experience using my genratator. I will make my best to improve it.</p>
+	<h3>Thank you for your feedback!</h3>
+	<p *ngIf="feedbackForm.value.rating === 'Awesome' || feedbackForm.value.rating === 'Good'">I am glad to hear you liked my project! Feel free to share it with your colleagues or friends that may find it usefull.</p>
+	<p *ngIf="feedbackForm.value.rating === 'Needs work!' || feedbackForm.value.rating === 'Awfull'">I am sorry to hear you didn't have a good experience using my generatator. I will make my best to improve it.</p>
   </ng-template>
 </div>

@@ -2,7 +2,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
 import { ValidationService } from './validation.service';
 import { StorageService } from './storage.service';
-import { Observable } from 'rxjs';
+import { Observable, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 declare const Sass: any;
 
@@ -13,7 +14,8 @@ export class GeneratorService {
 
 	private id: string;
 	private name: string;
-	private colors: Array<Color>;
+	private colors: Color[];
+	private colorsList: Color[][];
 	private css: string;
 	private php: string;
 	private isComplete: boolean;
@@ -21,6 +23,280 @@ export class GeneratorService {
 	statusChaged: EventEmitter<any> = new EventEmitter();
 
 	constructor(private storage: StorageService, private validator: ValidationService) {
+		this.colorsList = [
+			[
+				{
+					name: 'text-color',
+					hex: '#fff'
+				},
+				{
+					name: 'base-color',
+					hex: '#23282d'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#0073aa'
+				},
+				{
+					name: 'notification-color',
+					hex: '#d54e21'
+				},
+				{
+					name: 'body-background',
+					hex: '#f1f1f1'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#0073aa'
+				},
+				{
+					name: 'form-checked',
+					hex: '#0073aa'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#e5f8ff'
+				},
+				{
+					name: 'base-color',
+					hex: '#52accc'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#096484'
+				},
+				{
+					name: 'notification-color',
+					hex: '#e1a948'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#52accc'
+				},
+				{
+					name: 'form-checked',
+					hex: '#52accc'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#fff'
+				},
+				{
+					name: 'base-color',
+					hex: ' #59524c'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#c7a589'
+				},
+				{
+					name: 'notification-color',
+					hex: '#9ea476'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#59524c'
+				},
+				{
+					name: 'form-checked',
+					hex: '#59524c'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#fff'
+				},
+				{
+					name: 'base-color',
+					hex: '#523f6d'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#a3b745'
+				},
+				{
+					name: 'notification-color',
+					hex: '#d46f15'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#523f6d'
+				},
+				{
+					name: 'form-checked',
+					hex: '#523f6d'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#333'
+				},
+				{
+					name: 'base-color',
+					hex: '#e5e5e5'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#04a4cc'
+				},
+				{
+					name: 'notification-color',
+					hex: '#d64e07'
+				},
+				{
+					name: 'body-background',
+					hex: '#f5f5f5'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#04a4cc'
+				},
+				{
+					name: 'form-checked',
+					hex: '#04a4cc'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#fff'
+				},
+				{
+					name: 'base-color',
+					hex: '#363b3f'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#69a8bb'
+				},
+				{
+					name: 'notification-color',
+					hex: '#e14d43'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#363b3f'
+				},
+				{
+					name: 'form-checked',
+					hex: '#363b3f'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#f2fcff'
+				},
+				{
+					name: 'base-color',
+					hex: '#738e96'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#9ebaa0'
+				},
+				{
+					name: 'notification-color',
+					hex: '#aa9d88'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#738e96'
+				},
+				{
+					name: 'form-checked',
+					hex: '#738e96'
+				}
+			],
+			[
+				{
+					name: 'text-color',
+					hex: '#fff'
+				},
+				{
+					name: 'base-color',
+					hex: '#cf4944'
+				},
+				{
+					name: 'highlight-color',
+					hex: '#dd823b'
+				},
+				{
+					name: 'notification-color',
+					hex: '#ccaf0b'
+				},
+				{
+					name: 'body-background',
+					hex: '#fff'
+				},
+				{
+					name: 'link',
+					hex: '#0073aa'
+				},
+				{
+					name: 'button-color',
+					hex: '#cf4944'
+				},
+				{
+					name: 'form-checked',
+					hex: '#cf4944'
+				}
+			]
+		];
 		this.colors = [
 			{
 				name: 'text-color',
@@ -66,6 +342,14 @@ export class GeneratorService {
 		}
 		return false;
 
+	}
+
+	rotateColors() {
+		const rotating = interval(2000);
+		const lenght = this.colorsList.length;
+		return rotating.pipe(
+			map( index => this.colors = this.colorsList[index % lenght])
+		);
 	}
 
 	getColor(name: string): string {

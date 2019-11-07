@@ -22,6 +22,13 @@ export class LandingPageComponent implements OnInit {
 
 	ngOnInit() {
 		this.init = this.route.snapshot.data.state === 'init';
+		if (!this.init) {
+			this.generator.rotateColors().subscribe(colors => {
+				console.log(colors);
+				this.colors = colors;
+				this.setMockColors();
+			});
+		}
 		this.id = this.generator.getId();
 		this.name = this.generator.getName();
 		this.colors = this.generator.getAllColors();
