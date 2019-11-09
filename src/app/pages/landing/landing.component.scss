@@ -1,6 +1,6 @@
 :host {
-  display: block;
   position: relative;
+  display: block;
 }
 
 .mockup {
@@ -14,19 +14,53 @@
 }
 
 .customizer {
-  display: flex;
-  align-items: center;
-  width: 380px;
-  min-height: 570px;
+	max-width: 380px;
+    width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+
+  .landing-wrapper {
+    overflow: hidden;
+
+
+    &:not(.generator) {
+
+      .mockup {
+        position: relative;
+        top: 0;
+		left: 0;
+		width: initial;
+        transform: scale(0.6);
+        transform-origin: top left;
+      }
+    }
+
+    &.generator {
+      .mockup {
+        position: absolute;
+        top: 12em;
+        left: initial;
+        right: 0;
+        width: 100vw;
+        max-width: initial;
+        min-width: 800px;
+        transform: scale(0.6);
+        transform-origin: top right;
+      }
+    }
+  }
+
 }
 
 
 @media (max-width: 768px) {
-  .mockup {
-    display: none;
-  }
-
-  .customizer {
-    width: 100%;
+  .landing-wrapper {
+	display: flex;
+    justify-content: center;
+    .mockup {
+      display: none
+    }
   }
 }

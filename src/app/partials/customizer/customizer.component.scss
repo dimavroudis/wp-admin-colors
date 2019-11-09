@@ -11,6 +11,9 @@
   margin: 1em 0;
 }
 
+input[type="text"] {
+  max-width: 380px;
+}
 
 fieldset.form-row {
   margin-top: 1.2em;

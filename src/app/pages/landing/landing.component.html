@@ -1,4 +1,4 @@
-<article>
+<article class="landing-wrapper" [ngClass]="{'generator': init}">
   <section class="customizer" aria-live="polite">
     <ng-template [ngIf]="!init">
       <wpasg-onboarding (start)="init = true"></wpasg-onboarding>

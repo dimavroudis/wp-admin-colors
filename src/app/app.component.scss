@@ -1,17 +1,21 @@
 .wrapper {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   max-width: 1500px;
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0 auto;
-  padding: 2em;
+  padding: 0 2em;
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.8em;
+  padding: 2em 0 2em;
 
   .logo {
     display: inline-block;
@@ -35,7 +39,7 @@
 .footer {
   color: var(--wpasg-color-text-alt);
   text-align: left;
-  margin: 4em 0 0;
+  margin: 4em 0 2em;
   font-size: 0.9rem;
 
   a {
@@ -46,12 +50,20 @@
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 1rem 1rem 2.5rem;
+    padding: 0 1rem;
   }
 
   .header {
+    padding: 1.2em 0 1.2em;
+    justify-content: center;
+
     .toggle-color {
       display: none;
     }
+  }
+
+  .footer {
+    text-align: center;
+    margin: 3em 0 1.5em;
   }
 }

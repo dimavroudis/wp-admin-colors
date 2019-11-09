@@ -43,7 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
 		FormsModule,
 		ToastrModule.forRoot({
 			easing: 'ease-in-out',
-			positionClass: 'toast-top-right',
+			positionClass: 'toast-bottom-right',
 			timeOut: 3000,
 			maxOpened: 5,
 			autoDismiss: true

@@ -58,10 +58,9 @@ $adminbar-input-background: lighten($menu-background, 7%) !default;
 $menu-customizer-text: mix($base-color, $text-color, 40%) !default;
 
 
-/*
- * Button mixin- creates 3d-ish button effect with correct
- * highlights/shadows, based on a base color.
- */
+//  Button mixin- creates 3d-ish button effect with correct
+//  ighlights/shadows, based on a base color.
+
 @mixin button($button-color, $text-color: #fff) {
   background: $button-color;
   border-color: darken($button-color, 10%) darken($button-color, 15%) darken($button-color, 15%);

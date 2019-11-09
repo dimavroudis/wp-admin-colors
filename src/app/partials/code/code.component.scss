@@ -3,11 +3,12 @@
   position: relative;
 }
 
-.block{
-	box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
-	border-radius: 4px;
-	overflow: hidden;
+.block {
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
+  border-radius: 4px;
+  overflow: hidden;
 }
+
 code {
   max-height: 380px;
   overflow-x: hidden;
@@ -20,14 +21,15 @@ code {
 }
 
 .title {
-  padding: 10px;
+  margin-right: 160px;
+  padding: 16px;
   background: var(--wpasg-color-background);
 }
 
 .download-link {
   position: absolute;
   bottom: -18px;
-  right: 3%;
+  right: 5%;
   padding: 6px 18px;
   border-radius: 50px;
   border: 1px solid var(--wpasg-color-btn);
@@ -61,9 +63,22 @@ code {
   }
 }
 
-
 @media (max-width: 768px) {
   .download-link {
-    bottom: -50px;
+    bottom: calc(50% - 17px);
+  }
+
+}
+
+
+@media (max-width: 420px) {
+  .download-link {
+    .text {
+      display: none;
+    }
+  }
+
+  .title {
+    margin-right: 75px;
   }
 }

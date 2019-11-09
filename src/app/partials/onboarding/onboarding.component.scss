@@ -1,13 +1,20 @@
-:host{
-	display: block;
-    width: 100%;
-	text-align: left;
-	margin-bottom:5em;
+:host {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 3em 0 4em;
 }
 
-h1{
-	margin-top: 0;
+h1 {
+  margin-top: 0;
 }
-p{
-	margin-bottom: 4em;
+
+p {
+  margin-bottom: 4em;
+}
+
+@media (max-width: 768px) {
+  :host {
+    text-align: center;
+  }
 }
