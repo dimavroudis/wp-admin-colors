@@ -1,6 +1,10 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
+  height: 100%;
   text-align: left;
 }
 
@@ -15,5 +19,6 @@ p {
 @media (max-width: 768px) {
   :host {
     text-align: center;
+    align-items: center;
   }
 }

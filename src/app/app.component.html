@@ -8,7 +8,7 @@
     </a>
     <div class="toggle-color">
       <label id="toggleColorLabel" for="toggleColor">Dark or Light?</label>
-      <button class="toggle-btn" (click)="toggleScheme()" role="switch" id="toggleColor"
+      <button type="button" class="toggle-btn" (click)="toggleScheme()" role="switch" id="toggleColor"
         aria-labelledby="toggleColorLabel" [attr.aria-checked]="isLight()"></button>
     </div>
   </header>
@@ -16,6 +16,6 @@
     <router-outlet #outlet="outlet"></router-outlet>
   </main>
   <footer class="footer">
-		<a [routerLink]="['privacy']">Privacy</a> | <a [routerLink]="['terms']">Terms</a> | <span>Made by <a href="https://mavrou.gr">Dimitris Mavroudis</a></span>
+		<a [routerLink]="['privacy']">Privacy</a> / <a [routerLink]="['terms']">Terms</a> / <span>Made by <a href="https://mavrou.gr">Dimitris Mavroudis</a></span>
   </footer>
 </div>
