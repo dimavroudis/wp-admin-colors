@@ -14,8 +14,9 @@
 }
 
 .customizer {
-	max-width: 380px;
-    width: 100%;
+  max-width: 380px;
+  width: 100%;
+  height: 553px;
 }
 
 
@@ -30,11 +31,14 @@
       .mockup {
         position: relative;
         top: 0;
-		left: 0;
-		width: initial;
+        left: 0;
+        width: initial;
         transform: scale(0.6);
         transform-origin: top left;
-      }
+	  }
+	  .customizer{
+		margin: 3em 0 4em;
+	  }
     }
 
     &.generator {
@@ -52,15 +56,21 @@
     }
   }
 
+  .customizer {
+    height: initial;
+  }
+
 }
 
 
 @media (max-width: 768px) {
   .landing-wrapper {
-	display: flex;
+    display: flex;
     justify-content: center;
+
     .mockup {
       display: none
     }
+
   }
 }

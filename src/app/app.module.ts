@@ -19,6 +19,8 @@ import { AnalyticsService } from './services/analytics.service';
 import { ToastrModule } from 'ngx-toastr';
 import { OnboardingComponent } from './partials/onboarding/onboarding.component';
 import { FeedbackFormComponent } from './partials/feedback-form/feedback-form.component';
+import { TermsComponent } from './pages/terms/terms.component';
+import { PrivacyComponent } from './pages/privacy/privacy.component';
 
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
 		CodeComponent,
 		ExportPageComponent,
 		OnboardingComponent,
-		FeedbackFormComponent
+		FeedbackFormComponent,
+		TermsComponent,
+		PrivacyComponent
 	],
 	imports: [
 		BrowserModule,

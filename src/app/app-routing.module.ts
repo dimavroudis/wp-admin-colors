@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './pages/landing/landing.component';
 import { ExportPageComponent } from './pages/export/export.component';
+import { PrivacyComponent } from './pages/privacy/privacy.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
 	{
@@ -18,20 +20,21 @@ const routes: Routes = [
 		path: 'generate',
 		component: LandingPageComponent,
 		data: {
-			title: 'Create your scheme | WordPress Admin Scheme Generator',
-			description: 'Create your WordPress Admin scheme with a few clicks!',
-			animation: 'landing',
 			state: 'init'
 		}
 	},
 	{
 		path: 'export/:id',
 		component: ExportPageComponent,
-		data: {
-			title: 'Export your scheme | WordPress Admin Scheme Generator',
-			description: 'Export your WordPress Admin scheme in 2 steps!',
-			animation: 'export'
-		}
+	},
+	{
+		path: 'privacy',
+		component: PrivacyComponent,
+
+	},
+	{
+		path: 'terms',
+		component: TermsComponent,
 	},
 	{ path: '**', redirectTo: '/' }
 ];

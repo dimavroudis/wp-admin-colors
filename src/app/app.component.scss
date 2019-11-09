@@ -42,8 +42,32 @@
   margin: 4em 0 2em;
   font-size: 0.9rem;
 
+
   a {
-    color: var(--wpasg-color-text-alt);
+    color: var(--wpasg-color-text);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: calc(100% + 0.3em);
+      height: 0;
+      top: 50%;
+      left: -0.15em;
+      z-index: -1;
+      transform: translateY(-50%) rotate(-1deg);
+      background-color: var(--color-primary);
+      transition: all 0.3s ease;
+    }
+
+
+    &:hover:before {
+      height: 90%;
+    }
+
   }
 }
 
