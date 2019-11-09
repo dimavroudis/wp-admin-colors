@@ -7,101 +7,35 @@ RewriteRule ^ - [L]
 # If the requested resource doesn't exist, use index.html
 RewriteRule ^ /index.html
 
-# Serve resources with the proper media types (f.k.a. MIME types).
-# https://www.iana.org/assignments/media-types/media-types.xhtml
-
 <IfModule mod_mime.c>
-
-  # Data interchange
-
-    # 2.2.x+
-
     AddType text/xml                                    xml
-
-    # 2.2.x - 2.4.x
-
+	AddType text/x-scss									scss
     AddType application/json                            json
     AddType application/rss+xml                         rss
-
-    # 2.4.x+
-
     AddType application/json                            map
-
-  # JavaScript
-
-    # 2.2.x+
-
-    # See: https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages.
     AddType text/javascript                             js mjs
-
-
-  # Manifest files
-
-    # 2.2.x+
-
     AddType application/manifest+json                   webmanifest
     AddType text/cache-manifest                         appcache
-
-
-  # Media files
-
-    # 2.2.x - 2.4.x
-
     AddType audio/mp4                                   f4a f4b m4a
     AddType audio/ogg                                   oga ogg spx
     AddType video/mp4                                   mp4 mp4v mpg4
     AddType video/ogg                                   ogv
     AddType video/webm                                  webm
     AddType video/x-flv                                 flv
-
-    # 2.2.x+
-
     AddType image/svg+xml                               svgz
     AddType image/x-icon                                cur
-
-    # 2.4.x+
-
+	AddType image/png                                   ico
     AddType image/webp                                  webp
-
-
-  # Web fonts
-
-    # 2.2.x - 2.4.x
-
     AddType application/vnd.ms-fontobject               eot
-
-    # 2.2.x+
-
     AddType font/woff                                   woff
     AddType font/woff2                                  woff2
     AddType font/ttf                                    ttf
     AddType font/collection                             ttc
     AddType font/otf                                    otf
-
-
-  # Other
-
-    # 2.2.x+
-
     AddType text/vtt                                    vtt
-
 </IfModule>
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Serve all resources labeled as `text/html` or `text/plain`
-# with the media type `charset` parameter set to `utf-8`.
-#
-# https://httpd.apache.org/docs/current/mod/core.html#adddefaultcharset
-
 AddDefaultCharset utf-8
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Serve the following file types with the media type `charset`
-# parameter set to `utf-8`.
-#
-# https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset
 
 <IfModule mod_mime.c>
     AddCharset utf-8 .appcache \
@@ -116,7 +50,8 @@ AddDefaultCharset utf-8
                      .rss \
                      .vtt \
                      .webmanifest \
-                     .xml
+                     .xml \
+					 .scss
 </IfModule>
 
 ## EXPIRES CACHING ##

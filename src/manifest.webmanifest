@@ -6,7 +6,7 @@
   "background_color": "#1d1d1d",
   "display": "standalone",
   "orientation": "portrait",
-  "categories": ["wordpress", "theme", "generator", "wp admin", "scheme", "developer tools"],
+  "categories": ["productivity", "personalization", "utilities"],
   "scope": "/",
   "start_url": "/",
   "lang": "en",
