@@ -24,7 +24,6 @@ export class LandingPageComponent implements OnInit {
 		this.init = this.route.snapshot.data.state === 'init';
 		if (!this.init) {
 			this.generator.rotateColors().subscribe(colors => {
-				console.log(colors);
 				this.colors = colors;
 				this.setMockColors();
 			});
