@@ -23,8 +23,6 @@ export class AppComponent {
 		public router: Router,
 		private analytics: AnalyticsService,
 		private storage: StorageService,
-		private titleService: Title,
-		private meta: Meta,
 		public route: ActivatedRoute
 	) {
 		this.preferedScheme = this.storage.get('prefers-color-scheme');
@@ -41,28 +39,10 @@ export class AppComponent {
 			'color_scheme': this.preferedScheme
 		});
 
-		this.router.events.pipe(
-			filter((event) => event instanceof NavigationEnd),
-			map((event: NavigationEnd) => {
+		this.router.events.subscribe(event => {
+			if (event instanceof NavigationEnd) {
 				this.analytics.setPageView(event.urlAfterRedirects);
-				return this.route;
-			}),
-			map((route) => {
-				while (route.firstChild) { route = route.firstChild; }
-				return route;
-			}),
-			filter((route) => route.outlet === 'primary'),
-			mergeMap((route) => route.data)
-		).subscribe((event) => {
-			this.titleService.setTitle(event.title);
-			this.meta.updateTag({ name: 'og:title', content: event.title });
-			this.meta.updateTag({ name: 'description', content: event.description });
-			this.meta.updateTag({ name: 'og:description', content: event.description });
-			this.meta.updateTag({ name: 'og:type', content: 'website' });
-			this.meta.updateTag({
-				name: 'og:image',
-				content: (window.location.origin ? window.location.origin + '/' : window.location.protocol + '/' + window.location.host + '/') + 'assets/images/og-image.png'
-			});
+			}
 		});
 	}
 

@@ -1,32 +1,31 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
-  "assetGroups": [
-    {
-      "name": "app",
-      "installMode": "prefetch",
-      "resources": {
-        "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-		  "/*.js",
-		  "/assets/functions.php.text",
-		  "/assets/sass/**",
-		  "/assets/sass.worker.js"
-        ]
-      }
-    }, {
-      "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
-      "resources": {
-        "files": [
-          "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
-        ]
-      }
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+		"/favicon.ico",
+		"/apple-touch-icon.png",
+        "/index.html",
+        "/manifest.webmanifest",
+        "/*.css",
+        "/*.js",
+		"/assets/generator/**",
+		"/assets/i18n/**"
+	  ]
     }
-  ]
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**",
+        "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+      ]
+    }
+  }]
+
 }
