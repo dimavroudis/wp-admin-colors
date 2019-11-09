@@ -29,7 +29,7 @@ export class StorageService {
 	 *
 	 */
 	saveScheme(id: string, name: string, colors: Color[]): void {
-		this.set('scheme-' + id, JSON.stringify({ name, colors }))
+		this.set('scheme-' + id, JSON.stringify({ name, colors }));
 	}
 
 	/**

@@ -440,6 +440,7 @@ export class GeneratorService {
 				.replace(/{{name}}/g, this.name)
 				.replace(/{{id}}/g, this.id)
 				.replace(/{{body-background}}/g, this.getColor('body-background'))
+				.replace(/{{text-color}}/g, this.getColor('text-color'))
 				.replace(/{{base-color}}/g, this.getColor('base-color'))
 				.replace(/{{notification-color}}/g, this.getColor('notification-color'))
 				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'));

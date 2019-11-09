@@ -1,4 +1,4 @@
-function new_admin_color_scheme() {
+function {{id}}_admin_color_scheme() {
   //Get the theme directory
   $theme_dir = get_template_directory_uri();
  
