@@ -21,8 +21,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: none
 }
 
 
@@ -30,8 +28,6 @@ body {
   background: var(--wpasg-color-background);
   color: var(--wpasg-color-text);
   overflow-x: hidden;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -251,5 +247,15 @@ a.btn {
 @keyframes paint {
   0% {
     stroke-dashoffset: 280;
+  }
+}
+
+@media (display-mode: standalone) {
+  html,
+  body {
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
   }
 }

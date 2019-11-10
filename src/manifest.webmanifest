@@ -8,7 +8,7 @@
   "orientation": "portrait",
   "categories": ["productivity", "personalization", "utilities"],
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?utm_source=standalone&utm_medium=pwa",
   "lang": "en",
   "dir": "ltr",
   "prefer_related_applications": true,
