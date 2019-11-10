@@ -13,7 +13,7 @@
         "/*.css",
         "/*.js",
 		"/assets/generator/**",
-		"/assets/i18n/**"
+		"/assets/i18n/*.json"
 	  ]
     }
   }, {
@@ -23,7 +23,7 @@
     "resources": {
       "files": [
         "/assets/**",
-        "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        "/*.(eot|svg|cur|jpg|scss|svg|png|webp|gif|otf|ttf|woff|woff2|ani|txt)"
       ]
     }
   }]

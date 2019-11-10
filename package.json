@@ -1,14 +1,15 @@
 {
   "name": "wp-admin-scheme",
-  "version": "0.0.0",
+  "version": "0.9.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:prod": "ng build --prod",
+	"e2e": "ng e2e",
+	"build:prod": "trash  dist/wp-admin-scheme/* !.git !.cpanel.yml && ng build --prod --deleteOutputPath=false",
+	"deploy": "cd dist/wp-admin-scheme && git add . && git commit -m\"New build %npm_package_version%\" && git push origin master",
     "extract-i18n": "ngx-translate-extract --input ./src --output ./src/assets/i18n/en.json ./src/assets/i18n/el.json --format namespaced-json"
   },
   "private": true,
