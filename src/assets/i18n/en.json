@@ -1,8 +1,8 @@
 {
-	"scheme-name": "Scheme Name",
-	"scheme-id": "Scheme Id",
+	"scheme-name": "Color Scheme Name",
+	"scheme-id": "Color Scheme Id",
 	"choose-base-colors": "Choose your colors",
-	"generate": "Generate Scheme",
+	"generate": "Generate Color Scheme",
 	"text-color": "Menu Text",
 	"base-color": "Base/Menu",
 	"highlight-color": "Highlight",
