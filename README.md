@@ -1,27 +1,10 @@
-# WpAdminScheme
+# WordPress Admin Colors Generator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+WordPress Admin Colors Generator is a Progressive Web App that does exactly what you expect it would do. It helps WordPress users customize their WordPress dashboard easily and plugin-free.
 
-## Development server
+[![WordPress Admin Colors Generator - Generate your own WordPress Dashboard color scheme! | Product Hunt Embed](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=174004&theme=dark "Visit Product Hunt")](https://www.producthunt.com/posts/wordpress-admin-colors-generator?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-wordpress-admin-colors-generator)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Resources
+- [Sass.js](https://github.com/medialize/sass.js)
+- [TinyColor](https://github.com/bgrins/TinyColor)
