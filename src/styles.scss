@@ -164,7 +164,32 @@ a.btn {
   }
 }
 
+a.link {
+  color: var(--wpasg-color-text);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
 
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% + 0.3em);
+    height: 0;
+    top: 50%;
+    left: -0.15em;
+    z-index: -1;
+    transform: translateY(-50%) rotate(-1deg);
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+
+  &:hover:before {
+    height: 90%;
+  }
+
+}
 
 .toggle-btn {
   outline: 0;
@@ -251,11 +276,12 @@ a.btn {
 }
 
 @media (display-mode: standalone) {
+
   html,
   body {
-	-webkit-overflow-scrolling: touch;
-	overscroll-behavior: none;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
 }
