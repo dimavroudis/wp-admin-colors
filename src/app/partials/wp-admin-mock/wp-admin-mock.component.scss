@@ -3,7 +3,7 @@
   width: 100%;
   pointer-events: none;
   border-radius: 4px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 
   --mock-body-background: #fff;
   --mock-base-color: #23282d;
@@ -25,8 +25,8 @@
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .12), 3px 3px 20px rgba(0, 0, 0, .23);
 
 
-  * {
-    transition: background 0.3s ease-in-out;
+  *{
+	  transition: background 0.3s ease-in-out;
   }
 
   h2 {
@@ -55,10 +55,11 @@
   }
 
   .button-primary {
-	display: inline-block;
+    display: inline-block;
+    text-decoration: none;
     font-size: 1em;
     line-height: 2em;
-	height: 2.1em;
+    height: 2.1em;
     margin: 0;
     padding: 0 10px 1px;
     cursor: pointer;
@@ -67,13 +68,12 @@
     -webkit-appearance: none;
     border-radius: 3px;
     white-space: nowrap;
-	box-sizing: border-box;
-	text-decoration: none;
-	text-shadow: none;
-	vertical-align: baseline;
-	background: var(--mock-button-color);
+    box-sizing: border-box;
+    background: var(--mock-button-color);
     border-color: var(--mock-button-color);
     color: #fff;
+    box-shadow: 0 1px 0 var(--mock-button-color);
+    opacity: 1;
   }
 }
 
@@ -160,46 +160,24 @@
     vertical-align: middle;
   }
 
-  input[type="text"],
-  input[type="password"],
-  input[type="checkbox"],
-  input[type="color"],
-  input[type="date"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="email"],
-  input[type="month"],
-  input[type="number"],
-  input[type="search"],
-  input[type="radio"],
-  input[type="tel"],
-  input[type="text"],
-  input[type="time"],
-  input[type="url"],
-  input[type="week"],
-  select,
-  textarea,
-  .media-frame input[type=email],
-  .media-frame input[type=number],
-  .media-frame input[type=password],
-  .media-frame input[type=search],
-  .media-frame input[type=text],
-  .media-frame input[type=url],
-  .media-frame select,
-  .media-frame textarea {
-    padding: 3px 4px;
-    box-shadow: 0 0 0 transparent;
-    transition: box-shadow 0.1s linear;
-    border-radius: 4px;
-    border: 1px solid #7e8993;
-  }
-
   input:not(.button),
   select,
   textarea {
     padding: 2px 4px;
+    border-radius: 0;
   }
 
+  input[type=checkbox],
+  input[type=radio],
+  select,
+  textarea {
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .07);
+    background-color: #fff;
+    color: #32373c;
+    outline: 0;
+    transition: 50ms border-color ease-in-out;
+  }
 
   input[type=checkbox],
   input[type=radio] {
@@ -243,8 +221,8 @@
     margin-top: -4px;
     margin-right: 4px;
     float: none;
-    line-height: 10px;
-    position: relative;
+	line-height: 10px;
+	position: relative;
 
     &:checked::before {
       content: "";
@@ -260,20 +238,6 @@
     }
   }
 
-  .select {
-    height: 28px;
-    vertical-align: middle;
-    font-size: 13px;
-    line-height: 1;
-    color: #555;
-    border-radius: 3px;
-    padding: 2px 24px 2px 8px;
-    min-height: 28px;
-    -webkit-appearance: none;
-    background: #fff url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2…%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 4px top 50%;
-    background-size: 16px 16px;
-  }
-
   fieldset {
     border: 0;
     padding: 0;
@@ -287,7 +251,7 @@
   .color-option {
     display: inline-block;
     width: 24%;
-    padding: 5px 10px 10px;
+    padding: 3px 10px 10px;
     box-sizing: border-box;
     margin-bottom: 3px;
 
