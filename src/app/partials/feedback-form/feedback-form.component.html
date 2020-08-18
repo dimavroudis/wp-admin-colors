@@ -2,7 +2,7 @@
 <div class="float-box">
   <form [formGroup]="feedbackForm" aria-labelledby="feedbackFormTitle"
     *ngIf="status !=='success'; else success">
-    <div class="stacked rating" [ngClass]="{'invalid': rating?.invalid}">
+    <div class="stacked rating" [ngClass]="{'invalid': feedbackForm.controls.rating?.invalid}">
       <label for="rating">Rate your experience</label>
       <input type="hidden" formControlName="rating">
       <div id="rating" role="radiogroup" [ngClass]="{'touched': feedbackForm.value.rating}">
@@ -16,11 +16,11 @@
           (click)="feedbackForm.patchValue({rating: 'Awfull'})">Awfull</button>
       </div>
     </div>
-    <div class="stacked" [ngClass]="{'invalid': comment?.invalid}">
+    <div class="stacked" [ngClass]="{'invalid': feedbackForm.controls.comment?.invalid}">
       <label for="comment">Share your comment/feedback (optional)</label>
       <textarea id="comment" name="comment" class="form-control" formControlName="comment"></textarea>
     </div>
-    <div class="stacked" [ngClass]="{'invalid': email?.invalid}">
+    <div class="stacked" [ngClass]="{'invalid': feedbackForm.controls.email?.invalid}">
       <label for="email">Your email, if you want an answer (optional)</label>
       <input id="email" name="email" type="email" class="form-control" formControlName="email">
     </div>
