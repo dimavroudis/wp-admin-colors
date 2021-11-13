@@ -24,7 +24,7 @@
     "@angular/service-worker": "^10.0.10",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.18.3",
     "highlight.js": "^10.1.2",
     "ngx-color-picker": "^10.0.1",
     "ngx-toastr": "^13.0.0",
