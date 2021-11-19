@@ -33,7 +33,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 
 	ngAfterViewInit(): void {
 		document.querySelectorAll('pre code').forEach((block: HTMLElement) => {
-			hljs.highlightBlock(block);
+			hljs.highlightElement(block);
 		});
 	}
 
