@@ -55,13 +55,24 @@ export class CodeComponent implements OnInit, AfterViewInit {
 			'event_category': 'engangement',
 			'event_label': this.type
 		});
-		const el = document.createElement('textarea');
-		el.value = str;
-		document.body.appendChild(el);
-		el.select();
-		document.execCommand('copy');
-		document.body.removeChild(el);
-		this.toastr.success('Copied!');
+		if (navigator.clipboard) {
+			navigator.clipboard.writeText(str)
+				.then(() => this.toastr.success('Copied!'))
+				.catch(() => this.toastr.error('Copy failed!'))
+		} else {
+			try {
+				const el = document.createElement('textarea');
+				el.value = str;
+				document.body.appendChild(el);
+				el.select();
+				document.execCommand('copy');
+				document.body.removeChild(el);
+				this.toastr.success('Copied!')
+			}
+			catch {
+				this.toastr.error('Copy failed!')
+			}
+		}
 	}
 
 	trackDownload() {
