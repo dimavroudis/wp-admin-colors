@@ -25,6 +25,7 @@ speed-measure-plugin.json
 .vscode/*
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -33,6 +34,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+.dccache
 
 # System Files
 .DS_Store

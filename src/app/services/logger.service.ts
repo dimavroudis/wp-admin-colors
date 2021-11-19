@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-// tslint:disable: no-console
 
 @Injectable({
 	providedIn: 'root'

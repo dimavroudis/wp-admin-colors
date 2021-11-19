@@ -1,5 +1,5 @@
 module.exports = {
-	externals: {
-	  'sass': 'Sass'
-	}
-  };
+  externals: {
+    'sass': 'Sass'
+  }
+};
