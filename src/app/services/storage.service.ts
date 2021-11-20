@@ -20,7 +20,7 @@ export class StorageService {
 	 * Get value from storage
 	 *
 	 */
-	get(key: string) {
+	get(key: string): string {
 		return localStorage.getItem(key);
 	}
 

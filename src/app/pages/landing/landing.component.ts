@@ -34,29 +34,29 @@ export class LandingPageComponent implements OnInit {
 		this.setMockColors();
 	}
 
-	generateScheme() {
+	generateScheme(): void {
 		this.generator.setAllColors(this.colors);
 		this.generator.setName(this.name);
 		this.generator.setId(this.id);
 		this.router.navigate(['/export', this.id]);
 	}
 
-	setColors(colors) {
+	setColors(colors: Color[]): void {
 		this.colors = colors;
 		this.setMockColors();
 	}
 
-	setMockColors() {
+	setMockColors(): void {
 		this.colors.forEach((color) => {
 			this.mockColors[color.name] = color.hex;
 		});
 	}
 
-	setName(name) {
+	setName(name): void {
 		this.name = name;
 	}
 
-	setId(id) {
+	setId(id): void {
 		this.id = id;
 	}
 

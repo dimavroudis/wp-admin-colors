@@ -20,7 +20,7 @@ export class FeedbackFormComponent {
 		});
 	}
 
-	onSubmit() {
+	onSubmit(): void {
 		if (this.feedbackForm.valid) {
 			this.status = 'sending';
 			const httpOptions = {

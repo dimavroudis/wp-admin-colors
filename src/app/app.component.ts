@@ -44,7 +44,7 @@ export class AppComponent {
 		});
 	}
 
-	toggleScheme() {
+	toggleScheme(): string {
 		this.preferedScheme = this.preferedScheme === 'light' ? 'dark' : 'light';
 		this.changeScheme();
 		this.analytics.eventEmitter('change_scheme', {
@@ -55,7 +55,7 @@ export class AppComponent {
 		return this.preferedScheme;
 	}
 
-	changeScheme() {
+	changeScheme(): void {
 		const html = document.querySelector('html');
 		if (this.preferedScheme === 'light') {
 			html.classList.add('light');
@@ -64,11 +64,11 @@ export class AppComponent {
 		}
 	}
 
-	isLight() {
+	isLight(): Boolean {
 		return this.preferedScheme === 'light' ? true : false;
 	}
 
-	prepareRoute(outlet: RouterOutlet) {
+	prepareRoute(outlet: RouterOutlet): Boolean {
 		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 	}
 

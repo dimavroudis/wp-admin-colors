@@ -23,9 +23,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 	@Input() downloadFileType: string;
 
 
-	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService, private toastr: ToastrService) {
-
-	}
+	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService, private toastr: ToastrService) { }
 
 	ngOnInit(): void {
 		this.link = this.makeTextFile();
@@ -37,7 +35,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 		});
 	}
 
-	makeTextFile() {
+	makeTextFile(): SafeResourceUrl {
 		const data = new Blob([this.code], { type: this.downloadFileType });
 		// If we are replacing a previously generated file we need to
 		// manually revoke the object URL to avoid memory leaks.
@@ -50,7 +48,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 		return this.sanitizer.bypassSecurityTrustResourceUrl(this.textFile);
 	}
 
-	copyToClipborad(str) {
+	copyToClipborad(str: string): void {
 		this.analytics.eventEmitter('copy', {
 			'event_category': 'engangement',
 			'event_label': this.type
@@ -75,7 +73,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	trackDownload() {
+	trackDownload(): void {
 		this.analytics.eventEmitter('download', {
 			'event_category': 'engangement',
 			'event_label': this.type

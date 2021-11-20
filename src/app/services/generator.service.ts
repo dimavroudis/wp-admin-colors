@@ -19,7 +19,7 @@ export class GeneratorService {
 	private css: string;
 	private php: string;
 
-	progress: EventEmitter<any> = new EventEmitter();
+	progress: EventEmitter<{ status: string, message: string, done: boolean }> = new EventEmitter();
 
 	constructor(private storage: StorageService, private validator: ValidationService) {
 		this.colorsList = [
@@ -343,7 +343,7 @@ export class GeneratorService {
 
 	}
 
-	rotateColors() {
+	rotateColors(): Observable<Color[]> {
 		const rotating = interval(2000);
 		const lenght = this.colorsList.length;
 		return rotating.pipe(
@@ -408,7 +408,7 @@ export class GeneratorService {
 		return false;
 	}
 
-	generate(): Observable<any> {
+	generate(): EventEmitter<{ status: string, message: string, done: boolean }> {
 		this.generateCSS();
 		this.generatePHP();
 		this.storage.saveScheme(this.id, this.name, this.colors);
@@ -447,7 +447,7 @@ export class GeneratorService {
 				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'));
 		}).then(php => {
 			this.php = php;
-			this.progress.emit({ 'status': 'generated:php', 'done': !!this.php && !!this.css });
+			this.progress.emit({ 'status': 'generated:php', 'message': 'PHP generated.', 'done': !!this.php && !!this.css });
 		}).catch(() => {
 			this.progress.emit({ 'status': 'failed', 'message': 'Failed to load functions.php.txt', 'done': true });
 		});
@@ -473,7 +473,7 @@ export class GeneratorService {
 		try {
 			Sass.compile(sass, { style: Sass.style.expanded }, (result) => {
 				this.css = result.text;
-				this.progress.emit({ 'status': 'generated:css', 'done': !!this.php && !!this.css });
+				this.progress.emit({ 'status': 'generated:css', 'message': 'CSS generated.', 'done': !!this.php && !!this.css });
 			});
 		} catch {
 			this.progress.emit({ 'status': 'failed', 'message': 'Failed to generate CSS from SASS.', 'done': true });

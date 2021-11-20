@@ -8,7 +8,7 @@ export class LoggerService {
 	isProd = environment.production;
 	constructor() { }
 
-	debug(title: string, trace: boolean, ...data: any[]) {
+	debug(title: string, trace: boolean, ...data: any[]): void {
 		if (!this.isProd) {
 			console.debug(new Date() + ': ' + title, ...data);
 			if (trace) {
@@ -17,14 +17,14 @@ export class LoggerService {
 		}
 	}
 
-	error(title: string, trace: boolean, ...data: any[]) {
+	error(title: string, trace: boolean, ...data: any[]): void {
 		console.error(new Date() + ': ' + title, ...data);
 		if (trace) {
 			console.trace();
 		}
 	}
 
-	debugArray(title: string, trace: boolean, array: any[]) {
+	debugArray(title: string, trace: boolean, array: any[]): void {
 		if (!this.isProd) {
 			console.info(new Date() + ': ' + title);
 			console.table(array);
