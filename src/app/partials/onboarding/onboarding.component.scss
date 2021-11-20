@@ -18,6 +18,9 @@ h1 {
 
 .small {
   margin-top: 2em;
+  a{
+    color: var(--wpasg-color-text)
+  }
 }
 
 @media (max-width: 768px) {
