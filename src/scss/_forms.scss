@@ -1,9 +1,10 @@
 input,
 textarea {
-  padding: 0;
+  padding: 8px 12px;
   background: transparent;
-  border-width: 0 0 1px 0;
-  border-style: none none solid none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
   border-color: var(--wpasg-color-input);
   color: var(--wpasg-color-input);
 
