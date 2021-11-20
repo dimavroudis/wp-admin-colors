@@ -56,7 +56,7 @@ export const fadeInLeft = trigger('fadeInLeft', [
 ]);
 
 export const fadeOutRight = trigger('fadeInLeft', [
-	transition(':enter',  [
+	transition(':enter', [
 		style({ transform: 'translateX(0%)', opacity: 1 }),
 		animate('800ms ease-in-out', keyframes([
 			style({ transform: 'translateX(10px)', opacity: 1 }),

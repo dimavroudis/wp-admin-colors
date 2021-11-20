@@ -16,7 +16,7 @@ export class LandingPageComponent implements OnInit {
 	mockColors: any;
 	init: boolean;
 
-	constructor(private generator: GeneratorService, private router: Router,  private route: ActivatedRoute ) {
+	constructor(private generator: GeneratorService, private router: Router, private route: ActivatedRoute) {
 		this.mockColors = {};
 	}
 

@@ -1,8 +1,8 @@
 <div @fadeInUp class="block">
   <div class="header">
     <div *ngIf="title" class="title">{{title}}</div>
-    <button class="download-link" *ngIf="copy" href="" (click)="copyToClipborad(code)"><span class="text" aria-hidden="true">Copy</span> <span
-        class="dashicons dashicons-paperclip" aria-label="Copy"></span></button>
+    <button class="download-link" *ngIf="copy" href="" (click)="copyToClipborad(code)"><span class="text"
+        aria-hidden="true">Copy</span> <span class="dashicons dashicons-paperclip" aria-label="Copy"></span></button>
     <a class="download-link" *ngIf="link && download" [href]="link" [download]="downloadFileName" id="downloadlink"
       (click)="trackDownload()"><span class="text" aria-hidden="true">Download</span>
       <span class="dashicons dashicons-download" aria-label="Download"></span></a>

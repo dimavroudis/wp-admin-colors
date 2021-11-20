@@ -55,10 +55,10 @@
   }
 
   .button-primary {
-	display: inline-block;
+    display: inline-block;
     font-size: 1em;
     line-height: 2em;
-	height: 2.1em;
+    height: 2.1em;
     margin: 0;
     padding: 0 10px 1px;
     cursor: pointer;
@@ -67,11 +67,11 @@
     -webkit-appearance: none;
     border-radius: 3px;
     white-space: nowrap;
-	box-sizing: border-box;
-	text-decoration: none;
-	text-shadow: none;
-	vertical-align: baseline;
-	background: var(--mock-button-color);
+    box-sizing: border-box;
+    text-decoration: none;
+    text-shadow: none;
+    vertical-align: baseline;
+    background: var(--mock-button-color);
     border-color: var(--mock-button-color);
     color: #fff;
   }

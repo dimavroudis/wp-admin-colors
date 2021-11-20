@@ -121,8 +121,8 @@
   }
 
   &:before {
-	display: inline-block;
-	margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
     margin-inline-end: 10px;
     margin-inline-start: 0;
     flex-shrink: 0;
@@ -138,8 +138,8 @@
   }
 
   &.toast-error {
-	background-color: #BD362F;
-	color: var(--color-light);
+    background-color: #BD362F;
+    color: var(--color-light);
 
     &:before {
       content: "\f158";
