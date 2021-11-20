@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from './logger.service';
 
-
 declare let gtag: Function;
 
 @Injectable({
@@ -9,13 +8,10 @@ declare let gtag: Function;
 })
 export class AnalyticsService {
 
-	gaMeasurmentId: string;
-	dimensionIndex: number;
+	gaMeasurmentId = 'UA-79194198-4';
+	dimensionIndex = 1;
 
-	constructor(private logger: LoggerService) {
-		this.gaMeasurmentId = 'UA-79194198-4';
-		this.dimensionIndex = 1;
-	}
+	constructor(private logger: LoggerService) {}
 
 	public setDimension(dimension: string) {
 		const newDimension = {};
