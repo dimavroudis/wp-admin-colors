@@ -2,11 +2,11 @@
   <div class="options">
     <div class="stacked form-row">
       <label for="schemeName">{{ 'scheme-name' | translate}}</label>
-      <input id="schemeName" [(ngModel)]="name" (change)="nameChange(getInputChangeTarget($event.target)?.value)" type="text" />
+      <input id="schemeName" [(ngModel)]="name" (change)="nameChange(getInputChangeTarget($event)?.value)" type="text" />
     </div>
     <div class="stacked form-row">
       <label for="schemeId">{{ 'scheme-id' | translate}}</label>
-      <input id="schemeId" [(ngModel)]="id" (change)="idChange(getInputChangeTarget($event.target)?.value)" type="text" />
+      <input id="schemeId" [(ngModel)]="id" (change)="idChange(getInputChangeTarget($event)?.value)" type="text" />
     </div>
     <fieldset class="stacked form-row">
       <h2 class="label">{{ 'choose-base-colors' | translate}}</h2>
