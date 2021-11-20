@@ -4,8 +4,6 @@ import { Router, NavigationEnd, RouterOutlet, ActivatedRoute } from '@angular/ro
 import { AnalyticsService } from './services/analytics.service';
 import { routerAnimation } from './animation';
 import { StorageService } from './services/storage.service';
-import { Title, Meta } from '@angular/platform-browser';
-import { filter, mergeMap, map } from 'rxjs/operators';
 
 @Component({
 	selector: 'wpasg-root',
