@@ -1,0 +1,54 @@
+input,
+textarea {
+  padding: 0;
+  background: transparent;
+  border-width: 0 0 1px 0;
+  border-style: none none solid none;
+  border-color: var(--wpasg-color-input);
+  color: var(--wpasg-color-input);
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0;
+  }
+
+  &.ng-invalid {
+    border-color: #840000;
+  }
+}
+
+input {
+  height: 32px;
+}
+
+label,
+.label {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  label,
+  .label {
+    width: 100%;
+  }
+
+  label,
+  .label {
+    margin-bottom: 6px;
+  }
+}
+
+.color-input {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  margin-right: 16px;
+  box-shadow: 2px 3px 8px -2px rgb(0, 0, 0, .12), 2px 3px 8px -2px rgb(0, 0, 0, .22);
+}
