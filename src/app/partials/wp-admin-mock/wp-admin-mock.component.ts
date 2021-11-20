@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Color } from 'src/app/models/colors.model';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -9,7 +9,7 @@ import tinycolor from 'tinycolor2';
 	templateUrl: './wp-admin-mock.component.html',
 	styleUrls: ['./wp-admin-mock.component.scss'],
 })
-export class WpAdminMockComponent implements OnInit {
+export class WpAdminMockComponent{
 
 	mockColors: any;
 
@@ -18,10 +18,6 @@ export class WpAdminMockComponent implements OnInit {
 	@Input() id: string;
 
 	constructor(private sanitizer: DomSanitizer) {
-	}
-
-	ngOnInit() {
-
 	}
 
 	getCssVariables() {
