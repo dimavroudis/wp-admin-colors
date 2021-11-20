@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 	templateUrl: './feedback-form.component.html',
 	styleUrls: ['./feedback-form.component.scss']
 })
-export class FeedbackFormComponent implements OnInit {
+export class FeedbackFormComponent {
 
 	feedbackForm: FormGroup;
 	status: string;
@@ -20,9 +20,6 @@ export class FeedbackFormComponent implements OnInit {
 		});
 	}
 
-	ngOnInit() {
-	}
-
 	onSubmit() {
 		if (this.feedbackForm.valid) {
 			this.status = 'sending';
@@ -33,7 +30,7 @@ export class FeedbackFormComponent implements OnInit {
 			};
 			this.http.post(
 				'https://dev.mavrou.gr/api/forms/submit/wpasgfeedback?token=58484183684fcedb22adb7e7fb3e49',
-				{form: this.feedbackForm.value},
+				{ form: this.feedbackForm.value },
 				httpOptions
 			).subscribe(
 				() => {
@@ -41,7 +38,6 @@ export class FeedbackFormComponent implements OnInit {
 				},
 				(err) => {
 					this.status = 'error';
-					console.log(err);
 				}
 			);
 		}
