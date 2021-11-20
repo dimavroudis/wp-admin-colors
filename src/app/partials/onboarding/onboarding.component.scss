@@ -15,8 +15,13 @@ h1 {
 .lead {
   margin-bottom: 4em;
 }
-.small{
-	margin-top: 2em;
+
+.small {
+  margin-top: 2em;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px var(--wpasg-color-background), -1px -1px var(--wpasg-color-background), 1px -1px var(--wpasg-color-background), -1px 1px var(--wpasg-color-background);
 }
 
 @media (max-width: 768px) {

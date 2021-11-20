@@ -14,44 +14,34 @@
 }
 
 .customizer {
+  position: relative;
+  z-index: 10;
   max-width: 380px;
   width: 100%;
-  height: 553px;
 }
 
 
 @media (max-width: 1200px) {
 
   .landing-wrapper {
-    overflow: hidden;
 
 
-    &:not(.generator) {
 
-      .mockup {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: initial;
-        transform: scale(0.6);
-        transform-origin: top left;
-	  }
-	  .customizer{
-		margin: 3em 0 4em;
-	  }
+    .mockup {
+      position: absolute;
+      top: 160px;
+      left: initial;
+      right: 0;
+      width: 100vw;
+      max-width: initial;
+      min-width: 800px;
+      transform: scale(0.6);
+      transform-origin: top right;
     }
 
-    &.generator {
+    &:not(.generator) {
       .mockup {
-        position: absolute;
-        top: 12em;
-        left: initial;
-        right: 0;
-        width: 100vw;
-        max-width: initial;
-        min-width: 800px;
-        transform: scale(0.6);
-        transform-origin: top right;
+        top: 0;
       }
     }
   }
@@ -59,7 +49,6 @@
   .customizer {
     height: initial;
   }
-
 }
 
 
@@ -71,6 +60,5 @@
     .mockup {
       display: none
     }
-
   }
 }
