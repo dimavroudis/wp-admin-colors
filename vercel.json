@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src www.googletagmanager.com; connect-src https://www.google-analytics.com https://dev.mavrou.gr;"
+          "value": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://dev.mavrou.gr;"
         }
       ]
     }
