@@ -12,7 +12,7 @@
     "utilities"
   ],
   "scope": "/",
-  "start_url": "/?utm_source=standalone&utm_medium=pwa",
+  "start_url": "/",
   "lang": "en",
   "dir": "ltr",
   "prefer_related_applications": true,
