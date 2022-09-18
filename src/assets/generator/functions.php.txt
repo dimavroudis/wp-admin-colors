@@ -1,4 +1,4 @@
-function {{id}}_admin_color_scheme() {
+function wpacg_{{id}}_admin_color_scheme() {
   //Get the theme directory
   $theme_dir = get_stylesheet_directory_uri();
 
