@@ -19,14 +19,15 @@
     </p>
     <ol>
       <li *ngIf="css">
-        <wpasg-code-block [code]="css" title="Add this stylesheet to you theme:" type="css" [download]="true"
+        <wpasg-code-block [code]="css" title="Download and add this stylesheet to your theme:" type="css" [download]="true"
           [downloadFileName]="id + '.css'" downloadFileType="text/css"></wpasg-code-block>
       </li>
       <li *ngIf="php">
-        <wpasg-code-block [code]="php" title="Copy this code to your functions.php file:" [copy]="true" type="php">
+        <wpasg-code-block [code]="php" title="Copy this code to your theme's functions.php file:" [copy]="true" type="php">
         </wpasg-code-block>
       </li>
     </ol>
+    <p>If you need more information on the installation process, check <a href="https://www.wpbeginner.com/beginners-guide/how-to-change-the-admin-color-scheme-in-wordpress-3-8/?ref=wpadmincolors" title="How to Change the Admin Color Scheme in WordPress (Quick & Easy)" rel="noopener" target="_blank">this article for WPBeginner.</a></p>
   </section>
   <ng-template #failed>
     <section class="instructions">
