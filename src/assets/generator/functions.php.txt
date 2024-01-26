@@ -8,4 +8,4 @@ function wpacg_{{id}}_admin_color_scheme() {
     array( '{{base-color}}', '{{text-color}}', '{{notification-color}}' , '{{highlight-color}}')
   );
 }
-add_action('admin_init', '{{id}}_admin_color_scheme');
+add_action('admin_init', 'wpacg_{{id}}_admin_color_scheme');
