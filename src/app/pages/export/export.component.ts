@@ -11,7 +11,8 @@ import { AnalyticsService } from 'src/app/services/analytics.service';
 })
 export class ExportPageComponent implements OnInit {
 
-	isGenerated: boolean;
+	isComplete: boolean;
+	errorMessage: string;
 	php: string;
 	css: string;
 	generatorProgress: Subscription;
@@ -23,7 +24,8 @@ export class ExportPageComponent implements OnInit {
 		private route: ActivatedRoute,
 		private analytics: AnalyticsService
 	) {
-		this.isGenerated = false;
+		this.isComplete = false;
+		this.errorMessage = '';
 	}
 
 	ngOnInit() {
@@ -34,18 +36,25 @@ export class ExportPageComponent implements OnInit {
 		if (!this.id || !isValid) {
 			this.router.navigate(['/']);
 		} else {
-			this.generatorProgress = this.generator.generate().subscribe(value => {
-				this.isGenerated = value.done;
-				if (this.isGenerated) {
-					this.css = this.generator.getCSS();
-					this.php = this.generator.getPHP();
-					this.generatorProgress.unsubscribe();
-					this.generator.reset();
-					this.analytics.eventEmitter('generate_scheme', {
-						'event_category': 'engangement',
-						'event_label': JSON.stringify(this.generator.getAllColors())
-					});
+			this.generatorProgress = this.generator.generate().subscribe(progress => {
+				if (!progress.done) {
+					return;
 				}
+
+				this.isComplete = progress.done;
+				this.generatorProgress.unsubscribe();
+				if (progress.status === 'failed') {
+					this.errorMessage = progress.message;
+					return;
+				}
+
+				this.css = this.generator.getCSS();
+				this.php = this.generator.getPHP();
+				this.generator.reset();
+				this.analytics.eventEmitter('generate_scheme', {
+					'event_category': 'engangement',
+					'event_label': JSON.stringify(this.generator.getAllColors())
+				});
 			});
 		}
 	}

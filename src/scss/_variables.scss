@@ -1,4 +1,8 @@
 :root {
+  --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-family-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-weight-heading: 500;
+  --line-height: 1.5;
 
   --color-dark: #1d1d1d;
   --color-dark-lighter: #2d2d2d;
@@ -29,7 +33,7 @@
   --wpasg-color-btn-bg-focused: var(--color-light);
 
   --wpasg-color-toast-bg: var(--color-dark-lighter);
-  --wpasg-color-toast-text: var( --wpasg-color-text);
+  --wpasg-color-toast-text: var(--wpasg-color-text);
 
 }
 
@@ -46,7 +50,7 @@
   --wpasg-color-input: var(--color-dark-dark);
   --wpasg-color-input-disabled: var(--color-medium);
 
-  --wpasg-color-btn: var(--color-dark);
+  --wpasg-color-btn: var(--color-primary);
   --wpasg-color-btn-contract: var(--color-light);
   --wpasg-color-btn-disabled: var(--color-medium-dark);
   --wpasg-color-btn-focused: var(--color-light);

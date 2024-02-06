@@ -15,8 +15,12 @@ h1 {
 .lead {
   margin-bottom: 4em;
 }
-.small{
-	margin-top: 2em;
+
+.small {
+  margin-top: 2em;
+  a{
+    color: var(--wpasg-color-text)
+  }
 }
 
 @media (max-width: 768px) {

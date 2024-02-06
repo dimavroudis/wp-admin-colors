@@ -18,9 +18,8 @@ export class GeneratorService {
 	private colorsList: Color[][];
 	private css: string;
 	private php: string;
-	private isComplete: boolean;
 
-	statusChaged: EventEmitter<any> = new EventEmitter();
+	progress: EventEmitter<{ status: string, message: string, done: boolean }> = new EventEmitter();
 
 	constructor(private storage: StorageService, private validator: ValidationService) {
 		this.colorsList = [
@@ -344,11 +343,11 @@ export class GeneratorService {
 
 	}
 
-	rotateColors() {
+	rotateColors(): Observable<Color[]> {
 		const rotating = interval(2000);
 		const lenght = this.colorsList.length;
 		return rotating.pipe(
-			map( index => this.colors = this.colorsList[index % lenght])
+			map(index => this.colors = this.colorsList[index % lenght])
 		);
 	}
 
@@ -409,17 +408,16 @@ export class GeneratorService {
 		return false;
 	}
 
-	generate(): Observable<any> {
+	generate(): EventEmitter<{ status: string, message: string, done: boolean }> {
 		this.generateCSS();
 		this.generatePHP();
 		this.storage.saveScheme(this.id, this.name, this.colors);
-		return this.statusChaged;
+		return this.progress;
 	}
 
 	reset(): void {
 		this.css = '';
 		this.php = '';
-		this.isComplete = false;
 	}
 
 	clean(): void {
@@ -428,13 +426,16 @@ export class GeneratorService {
 		this.colors = [];
 	}
 
-	private generateCSS(): Promise<void> {
+	private generateCSS(): Promise<void | Error> {
 		return this.mergeSass().then(sass => {
 			this.convertSASStoCSS(sass);
+		}).catch((err) => {
+			console.log(err);
+			this.progress.emit({ 'status': 'failed', 'message': err, 'done': true })
 		});
 	}
 
-	private generatePHP(): Promise<string> {
+	private generatePHP(): Promise<void> {
 		return fetch('assets/generator/functions.php.txt').then(template => template.text()).then(results => {
 			return results
 				.replace(/{{name}}/g, this.name)
@@ -446,9 +447,9 @@ export class GeneratorService {
 				.replace(/{{highlight-color}}/g, this.getColor('highlight-color'));
 		}).then(php => {
 			this.php = php;
-			this.isComplete = !!this.php && !!this.css;
-			this.statusChaged.emit({ 'status': 'generated:php', 'done': this.isComplete });
-			return this.php;
+			this.progress.emit({ 'status': 'generated:php', 'message': 'PHP generated.', 'done': !!this.php && !!this.css });
+		}).catch(() => {
+			this.progress.emit({ 'status': 'failed', 'message': 'Failed to load functions.php.txt', 'done': true });
 		});
 	}
 
@@ -462,18 +463,20 @@ export class GeneratorService {
 		return variableSCSS;
 	}
 
-	private mergeSass(): Promise<string> {
+	private mergeSass(): Promise<string | Error> {
 		return fetch('assets/generator/wp_admin.scss').then(template => template.text()).then(results => {
 			return this.getVariableSCSS() + results;
-		});
+		}).catch(() => new Error('Failed to load wp_admin.scss.'));
 	}
 
 	private convertSASStoCSS(sass): void {
-		Sass.compile(sass, { style: Sass.style.expanded }, (result) => {
-			this.css = result.text;
-			this.isComplete = !!this.php && !!this.css;
-			this.statusChaged.emit({ 'status': 'generated:css', 'done': this.isComplete });
-		});
-
+		try {
+			Sass.compile(sass, { style: Sass.style.expanded }, (result) => {
+				this.css = result.text;
+				this.progress.emit({ 'status': 'generated:css', 'message': 'CSS generated.', 'done': !!this.php && !!this.css });
+			});
+		} catch {
+			this.progress.emit({ 'status': 'failed', 'message': 'Failed to generate CSS from SASS.', 'done': true });
+		}
 	}
 }

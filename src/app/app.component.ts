@@ -4,8 +4,6 @@ import { Router, NavigationEnd, RouterOutlet, ActivatedRoute } from '@angular/ro
 import { AnalyticsService } from './services/analytics.service';
 import { routerAnimation } from './animation';
 import { StorageService } from './services/storage.service';
-import { Title, Meta } from '@angular/platform-browser';
-import { filter, mergeMap, map } from 'rxjs/operators';
 
 @Component({
 	selector: 'wpasg-root',
@@ -46,7 +44,7 @@ export class AppComponent {
 		});
 	}
 
-	toggleScheme() {
+	toggleScheme(): string {
 		this.preferedScheme = this.preferedScheme === 'light' ? 'dark' : 'light';
 		this.changeScheme();
 		this.analytics.eventEmitter('change_scheme', {
@@ -57,7 +55,7 @@ export class AppComponent {
 		return this.preferedScheme;
 	}
 
-	changeScheme() {
+	changeScheme(): void {
 		const html = document.querySelector('html');
 		if (this.preferedScheme === 'light') {
 			html.classList.add('light');
@@ -66,11 +64,11 @@ export class AppComponent {
 		}
 	}
 
-	isLight() {
+	isLight(): Boolean {
 		return this.preferedScheme === 'light' ? true : false;
 	}
 
-	prepareRoute(outlet: RouterOutlet) {
+	prepareRoute(outlet: RouterOutlet): Boolean {
 		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 	}
 

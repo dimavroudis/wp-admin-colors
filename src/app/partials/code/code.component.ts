@@ -23,9 +23,7 @@ export class CodeComponent implements OnInit, AfterViewInit {
 	@Input() downloadFileType: string;
 
 
-	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService, private toastr: ToastrService) {
-
-	}
+	constructor(private sanitizer: DomSanitizer, private analytics: AnalyticsService, private toastr: ToastrService) { }
 
 	ngOnInit(): void {
 		this.link = this.makeTextFile();
@@ -33,11 +31,11 @@ export class CodeComponent implements OnInit, AfterViewInit {
 
 	ngAfterViewInit(): void {
 		document.querySelectorAll('pre code').forEach((block: HTMLElement) => {
-			hljs.highlightBlock(block);
+			hljs.highlightElement(block);
 		});
 	}
 
-	makeTextFile() {
+	makeTextFile(): SafeResourceUrl {
 		const data = new Blob([this.code], { type: this.downloadFileType });
 		// If we are replacing a previously generated file we need to
 		// manually revoke the object URL to avoid memory leaks.
@@ -50,21 +48,32 @@ export class CodeComponent implements OnInit, AfterViewInit {
 		return this.sanitizer.bypassSecurityTrustResourceUrl(this.textFile);
 	}
 
-	copyToClipborad(str) {
+	copyToClipborad(str: string): void {
 		this.analytics.eventEmitter('copy', {
 			'event_category': 'engangement',
 			'event_label': this.type
 		});
-		const el = document.createElement('textarea');
-		el.value = str;
-		document.body.appendChild(el);
-		el.select();
-		document.execCommand('copy');
-		document.body.removeChild(el);
-		this.toastr.success('Copied!');
+		if (navigator.clipboard) {
+			navigator.clipboard.writeText(str)
+				.then(() => this.toastr.success('Copied!'))
+				.catch(() => this.toastr.error('Copy failed!'))
+		} else {
+			try {
+				const el = document.createElement('textarea');
+				el.value = str;
+				document.body.appendChild(el);
+				el.select();
+				document.execCommand('copy');
+				document.body.removeChild(el);
+				this.toastr.success('Copied!')
+			}
+			catch {
+				this.toastr.error('Copy failed!')
+			}
+		}
 	}
 
-	trackDownload() {
+	trackDownload(): void {
 		this.analytics.eventEmitter('download', {
 			'event_category': 'engangement',
 			'event_label': this.type

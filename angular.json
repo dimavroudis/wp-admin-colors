@@ -10,7 +10,7 @@
       "prefix": "wpasg",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
@@ -62,7 +62,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "5mb",
+                  "maximumWarning": "6mb",
                   "maximumError": "8mb"
                 },
                 {
@@ -142,8 +142,9 @@
       }
     }
   },
-  "defaultProject": "wp-admin-colors",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

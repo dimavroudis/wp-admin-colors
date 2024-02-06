@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: var(--wpasg-color-background);
+  color: var(--wpasg-color-text);
+  overflow-x: hidden;
+}
+
+.post {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+
+@media (display-mode: standalone) {
+  html,
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+}

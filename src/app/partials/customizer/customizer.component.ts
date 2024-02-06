@@ -25,7 +25,7 @@ export class CustomizerComponent {
 
 	constructor(public translate: TranslateService, private validator: ValidationService, private toastr: ToastrService) { }
 
-	nameChange(value) {
+	nameChange(value: string): void {
 		this.name = value;
 		if (!this.id) {
 			this.idChange(value);
@@ -33,16 +33,20 @@ export class CustomizerComponent {
 		this.nameChanged.emit(value);
 	}
 
-	idChange(value) {
+	idChange(value: string): void {
 		this.id = this.validator.makeSafeId(value);
 		this.idChanged.emit(this.id);
 	}
 
-	colorChange() {
+	getInputChangeTarget(event): HTMLTextAreaElement {
+		return event.target as HTMLTextAreaElement;
+	}
+
+	colorChange(): void {
 		this.colorChanged.emit(this.colors);
 	}
 
-	submit() {
+	submit(): void {
 		if (!this.name || !this.id) {
 			if (!this.name) {
 				this.toastr.error('Please provide a name for your scheme.');

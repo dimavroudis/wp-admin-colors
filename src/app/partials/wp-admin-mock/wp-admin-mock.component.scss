@@ -55,10 +55,10 @@
   }
 
   .button-primary {
-	display: inline-block;
+    display: inline-block;
     font-size: 1em;
     line-height: 2em;
-	height: 2.1em;
+    height: 2.1em;
     margin: 0;
     padding: 0 10px 1px;
     cursor: pointer;
@@ -67,11 +67,11 @@
     -webkit-appearance: none;
     border-radius: 3px;
     white-space: nowrap;
-	box-sizing: border-box;
-	text-decoration: none;
-	text-shadow: none;
-	vertical-align: baseline;
-	background: var(--mock-button-color);
+    box-sizing: border-box;
+    text-decoration: none;
+    text-shadow: none;
+    vertical-align: baseline;
+    background: var(--mock-button-color);
     border-color: var(--mock-button-color);
     color: #fff;
   }
@@ -270,7 +270,7 @@
     padding: 2px 24px 2px 8px;
     min-height: 28px;
     -webkit-appearance: none;
-    background: #fff url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2…%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 4px top 50%;
+    background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2…%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E") no-repeat right 4px top 50%;
     background-size: 16px 16px;
   }
 

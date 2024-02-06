@@ -9,15 +9,12 @@ export class ValidationService {
 
 	makeSafeId(id: string): string {
 		return id.replace(/[^a-z0-9]/g, (s) => {
-			const c = s.charCodeAt(0);
-			if (c === 32) {
-				return '-';
+			if (s === ' ' || s === '_' || s === '_') {
+				return '_';
 			}
+			const c = s.charCodeAt(0);
 			if (c >= 65 && c <= 90) {
 				return s.toLowerCase();
-			}
-			if (c === 45) {
-				return s;
 			}
 			return '';
 		});

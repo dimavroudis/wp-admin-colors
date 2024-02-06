@@ -1,11 +1,11 @@
-function {{id}}_admin_color_scheme() {
+function wpacg_{{id}}_admin_color_scheme() {
   //Get the theme directory
-  $theme_dir = get_template_directory_uri();
- 
+  $theme_dir = get_stylesheet_directory_uri();
+
   //{{name}}
   wp_admin_css_color( '{{id}}', __( '{{name}}' ),
     $theme_dir . '/{{id}}.css',
     array( '{{base-color}}', '{{text-color}}', '{{notification-color}}' , '{{highlight-color}}')
   );
 }
-add_action('admin_init', '{{id}}_admin_color_scheme');
+add_action('admin_init', 'wpacg_{{id}}_admin_color_scheme');

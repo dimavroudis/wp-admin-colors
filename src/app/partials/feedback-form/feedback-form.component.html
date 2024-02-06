@@ -1,8 +1,7 @@
-<h2 id="feedbackFormTitle">Care to leave a comment?</h2>
-<div class="float-box">
-  <form [formGroup]="feedbackForm" aria-labelledby="feedbackFormTitle"
-    *ngIf="status !=='success'; else success">
-    <div class="stacked rating" [ngClass]="{'invalid': rating?.invalid}">
+<h2 id="feedbackFormTitle" *ngIf="status !== 'success'">Care to leave a comment?</h2>
+<div class=" float-box">
+  <form [formGroup]="feedbackForm" aria-labelledby="feedbackFormTitle" *ngIf="status !== 'success'; else success">
+    <div class="stacked rating" [ngClass]="{'invalid': feedbackForm.controls.rating?.invalid}">
       <label for="rating">Rate your experience</label>
       <input type="hidden" formControlName="rating">
       <div id="rating" role="radiogroup" [ngClass]="{'touched': feedbackForm.value.rating}">
@@ -16,20 +15,24 @@
           (click)="feedbackForm.patchValue({rating: 'Awfull'})">Awfull</button>
       </div>
     </div>
-    <div class="stacked" [ngClass]="{'invalid': comment?.invalid}">
+    <div class="stacked" [ngClass]="{'invalid': feedbackForm.controls.comment?.invalid}">
       <label for="comment">Share your comment/feedback (optional)</label>
       <textarea id="comment" name="comment" class="form-control" formControlName="comment"></textarea>
     </div>
-    <div class="stacked" [ngClass]="{'invalid': email?.invalid}">
+    <div class="stacked" [ngClass]="{'invalid': feedbackForm.controls.email?.invalid}">
       <label for="email">Your email, if you want an answer (optional)</label>
       <input id="email" name="email" type="email" class="form-control" formControlName="email">
     </div>
-    <button class="btn" type="submit" [disabled]="status=='sending'"
+    <button class="btn" type="submit" [disabled]="status === 'sending'"
       (click)="onSubmit()">{{status !=='sending' ? 'send your comment': 'sending your comment...'}}</button>
+    <div class="error-message" *ngIf="status === 'error'">We were not able to receive your feedback. Please try again.
+    </div>
   </form>
   <ng-template #success>
-	<h3>Thank you for your feedback!</h3>
-	<p *ngIf="feedbackForm.value.rating === 'Awesome' || feedbackForm.value.rating === 'Good'">I am glad to hear you liked my project! Feel free to share it with your colleagues or friends that may find it usefull.</p>
-	<p *ngIf="feedbackForm.value.rating === 'Needs work!' || feedbackForm.value.rating === 'Awfull'">I am sorry to hear you didn't have a good experience using my generatator. I will make my best to improve it.</p>
+    <h3>Thank you for your feedback!</h3>
+    <p *ngIf="feedbackForm.value.rating === 'Awesome' || feedbackForm.value.rating === 'Good'">I am glad to hear you
+      liked my project! Feel free to share it with your colleagues or friends that may find it usefull.</p>
+    <p *ngIf="feedbackForm.value.rating === 'Needs work!' || feedbackForm.value.rating === 'Awfull'">I am sorry to hear
+      you didn't have a good experience using my generatator. I will make my best to improve it.</p>
   </ng-template>
 </div>

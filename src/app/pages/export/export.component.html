@@ -1,4 +1,4 @@
-<ng-template [ngIf]="!isGenerated">
+<ng-template [ngIf]="!isComplete">
   <div class="loading-screen generator">
     <div class="content">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" aria-hidden="true">
@@ -11,23 +11,30 @@
     </div>
   </div>
 </ng-template>
-<article *ngIf="isGenerated" class="export">
-  <section class="instructions">
+<article *ngIf="isComplete" class="export">
+  <section class="instructions" *ngIf="!errorMessage; else failed">
     <h1>Your color scheme is ready.</h1>
     <p class="lead">Follow the next steps to apply your color scheme or <a routerLink="/generate">go back</a> to edit it
       or create another.
     </p>
     <ol>
       <li *ngIf="css">
-        <wpasg-code-block [code]="css" title="Add this stylesheet to you theme:" type="css" [download]="true"
+        <wpasg-code-block [code]="css" title="Download and add this stylesheet to your theme:" type="css" [download]="true"
           [downloadFileName]="id + '.css'" downloadFileType="text/css"></wpasg-code-block>
       </li>
       <li *ngIf="php">
-        <wpasg-code-block [code]="php" title="Copy this code to your functions.php file:" [copy]="true" type="php">
+        <wpasg-code-block [code]="php" title="Copy this code to your theme's functions.php file:" [copy]="true" type="php">
         </wpasg-code-block>
       </li>
     </ol>
+    <p>If you need more information on the installation process, check <a href="https://www.wpbeginner.com/beginners-guide/how-to-change-the-admin-color-scheme-in-wordpress-3-8/?ref=wpadmincolors" title="How to Change the Admin Color Scheme in WordPress (Quick & Easy)" rel="noopener" target="_blank">this article for WPBeginner.</a></p>
   </section>
+  <ng-template #failed>
+    <section class="instructions">
+      <h1>The generator has failed.</h1>
+      <p class="lead">{{errorMessage}} Try to refresh the page and try again.</p>
+    </section>
+  </ng-template>
   <aside class="sidebar">
     <wpasg-feedback-form></wpasg-feedback-form>
   </aside>
