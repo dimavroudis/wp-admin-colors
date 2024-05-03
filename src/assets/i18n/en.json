@@ -1,14 +1,15 @@
 {
-	"scheme-name": "Color Scheme Name",
-	"scheme-id": "Color Scheme Id",
-	"choose-base-colors": "Choose your colors",
-	"generate": "Generate Color Scheme",
-	"text-color": "Menu Text",
-	"base-color": "Base/Menu",
-	"highlight-color": "Highlight",
-	"notification-color": "Notification",
-	"body-background": "Background",
-	"link": "Links",
-	"button-color": "Buttons",
-	"form-checked": "Form/Inputs"
+  "scheme-name": "Color Scheme Name",
+  "scheme-id": "Color Scheme Id",
+  "choose-base-colors": "Choose your colors",
+  "generate": "Generate Color Scheme",
+  "randomize": "Randomize",
+  "text-color": "Menu Text",
+  "base-color": "Base/Menu",
+  "highlight-color": "Highlight",
+  "notification-color": "Notification",
+  "body-background": "Background",
+  "link": "Links",
+  "button-color": "Buttons",
+  "form-checked": "Form/Inputs"
 }

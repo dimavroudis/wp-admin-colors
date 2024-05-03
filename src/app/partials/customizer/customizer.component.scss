@@ -31,3 +31,8 @@ fieldset.form-row {
   flex-wrap: nowrap;
   margin: 0.8em 0;
 }
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}

@@ -1,11 +1,19 @@
-<article class="landing-wrapper" [ngClass]="{'generator': init}">
+<article class="landing-wrapper" [ngClass]="{ generator: init }">
   <section class="customizer" aria-live="polite">
     <ng-template [ngIf]="!init">
       <wpasg-onboarding (start)="init = true"></wpasg-onboarding>
     </ng-template>
     <ng-template [ngIf]="init">
-      <wpasg-customizer [colors]="colors" [name]="name" [id]="id" (colorChanged)="setColors($event)"
-        (nameChanged)="setName($event)" (idChanged)="setId($event)" (submited)="generateScheme()"></wpasg-customizer>
+      <wpasg-customizer
+        [colors]="colors"
+        [name]="name"
+        [id]="id"
+        (colorChanged)="setColors($event)"
+        (nameChanged)="setName($event)"
+        (idChanged)="setId($event)"
+        (randomized)="randomizeScheme()"
+        (submited)="generateScheme()"
+      ></wpasg-customizer>
     </ng-template>
   </section>
 

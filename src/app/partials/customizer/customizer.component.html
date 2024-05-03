@@ -1,25 +1,44 @@
 <div @fadeIn>
   <div class="options">
     <div class="stacked form-row">
-      <label for="schemeName">{{ 'scheme-name' | translate}}</label>
-      <input id="schemeName" [(ngModel)]="name" (change)="nameChange(getInputChangeTarget($event)?.value)" type="text" />
+      <label for="schemeName">{{ "scheme-name" | translate }}</label>
+      <input
+        id="schemeName"
+        [(ngModel)]="name"
+        (change)="nameChange(getInputChangeTarget($event)?.value)"
+        type="text"
+      />
     </div>
     <div class="stacked form-row">
-      <label for="schemeId">{{ 'scheme-id' | translate}}</label>
-      <input id="schemeId" [(ngModel)]="id" (change)="idChange(getInputChangeTarget($event)?.value)" type="text" />
+      <label for="schemeId">{{ "scheme-id" | translate }}</label>
+      <input
+        id="schemeId"
+        [(ngModel)]="id"
+        (change)="idChange(getInputChangeTarget($event)?.value)"
+        type="text"
+      />
     </div>
     <fieldset class="stacked form-row">
-      <h2 class="label">{{ 'choose-base-colors' | translate}}</h2>
+      <h2 class="label">{{ "choose-base-colors" | translate }}</h2>
       <div *ngFor="let color of colors" class="color">
-        <div class="color-input" [(colorPicker)]="color.hex" [style.background]="color.hex" [cpAlphaChannel]="'disabled'"
-          [cpOutputFormat]="'hex'" cpDialogDisplay="popup" (colorPickerChange)="colorChange()">
-        </div>
-        <span>{{color.name | translate}}</span>
+        <div
+          class="color-input"
+          [(colorPicker)]="color.hex"
+          [style.background]="color.hex"
+          [cpAlphaChannel]="'disabled'"
+          [cpOutputFormat]="'hex'"
+          cpDialogDisplay="popup"
+          (colorPickerChange)="colorChange()"
+        ></div>
+        <span>{{ color.name | translate }}</span>
       </div>
     </fieldset>
   </div>
 
-  <div>
-    <button class="btn" (click)="submit()">{{ 'generate' | translate}}</button>
+  <div class="buttons">
+    <button class="btn" (click)="submit()">{{ "generate" | translate }}</button>
+    <button class="btn btn-outline" (click)="randomize()">
+      {{ "randomize" | translate }}
+    </button>
   </div>
 </div>

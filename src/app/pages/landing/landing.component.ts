@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { GeneratorService } from 'src/app/services/generator.service';
-import { Color } from 'src/app/models/colors.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { GeneratorService } from "src/app/services/generator.service";
+import { Color } from "src/app/models/colors.model";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-	templateUrl: './landing.component.html',
-	styleUrls: ['./landing.component.scss']
+	templateUrl: "./landing.component.html",
+	styleUrls: ["./landing.component.scss"],
 })
 export class LandingPageComponent implements OnInit {
 	name: string;
@@ -16,14 +16,18 @@ export class LandingPageComponent implements OnInit {
 	mockColors: any;
 	init: boolean;
 
-	constructor(private generator: GeneratorService, private router: Router, private route: ActivatedRoute) {
+	constructor(
+		private generator: GeneratorService,
+		private router: Router,
+		private route: ActivatedRoute
+	) {
 		this.mockColors = {};
 	}
 
 	ngOnInit() {
-		this.init = this.route.snapshot.data.state === 'init';
+		this.init = this.route.snapshot.data.state === "init";
 		if (!this.init) {
-			this.generator.rotateColors().subscribe(colors => {
+			this.generator.rotateColors().subscribe((colors) => {
 				this.colors = colors;
 				this.setMockColors();
 			});
@@ -38,7 +42,12 @@ export class LandingPageComponent implements OnInit {
 		this.generator.setAllColors(this.colors);
 		this.generator.setName(this.name);
 		this.generator.setId(this.id);
-		this.router.navigate(['/export', this.id]);
+		this.router.navigate(["/export", this.id]);
+	}
+
+	randomizeScheme(): void {
+		this.colors = this.generator.getNextColorScheme();
+		this.setMockColors();
 	}
 
 	setColors(colors: Color[]): void {
@@ -59,5 +68,4 @@ export class LandingPageComponent implements OnInit {
 	setId(id): void {
 		this.id = id;
 	}
-
 }
